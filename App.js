@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Button, SafeAreaView, Alert ,Image, TouchableOp
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import logo from './src/images/logoWhite.svg';
+import logo from './src/images/logoWhite.png';
 
 const colors = {
   blue: "#0036d5",
@@ -21,7 +21,8 @@ const loginCopy = {
   borderRadius: 27.6,
   borderStyle: "solid",
   borderWidth: 1.7,
-  borderColor: colors.white
+  borderColor: colors.white,
+  marginTop: 200
 };
 
 const login = {
@@ -62,14 +63,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.signatureBlue,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   logoContainer:{
     width: 200,
-    height: 200
-  },
-  test: {
-    width: 612,
+    height: 200,
+    marginTop: 107
   },
   signUp: loginCopy,
   signUpLayer : signUpLayer,
