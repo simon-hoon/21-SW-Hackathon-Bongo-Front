@@ -4,16 +4,21 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, SafeAreaView, Alert ,Image, TouchableOpacity} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import signUpScreen from './src/signUp';
 
 import logo from './src/images/logoWhite.png';
-const basicFont = require('./assets/fonts/NotoSansCJKkr-Bold.otf');
 
 const colors = {
   blue: "#0036d5",
   flatBlueSkyLight: "#fdfeff",
-  lightGray: "#d0d0d0",
   signatureBlue: "#0047cc",
-  white: "#ffffff"
+  veryLightPink: "#d0d0d0",
+  lightGray: "#ededed",
+  white: "#ffffff",
+  textMiscBtnCenterBlackStyle: "#0b0b0b",
+  veryLightPinkTwo: "#b7b7b7",
+  signatureBlue2: "rgba(0, 71, 204, 0.2)",
+  colorPrimary500: "#00d5a7"
 };
 
 const loginCopy = {
@@ -83,7 +88,7 @@ function HomeScreen({navigation}) {
       <Image style={styles.logoContainer} source={logo} />
       <TouchableOpacity 
       style={styles.signUp}
-      onPress={() => navigation.navigate('Details')}>
+      onPress={() => navigation.navigate('signUp')}>
         <Text style={styles.signUpLayer}>회원가입</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.login}>
@@ -94,27 +99,20 @@ function HomeScreen({navigation}) {
   );
 }
 
-
-function DetailsScreen({navigation}) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-      title="Go to Details... again"
-      onPress={() => navigation.navigate('Details')}
-    />
-    </View>
-  );
-}
-
 const Stack = createStackNavigator();
 
 export default function App() {
-  return (    <NavigationContainer>
-      <Stack.Navigator>
+  
+  return ( <NavigationContainer>
+      <Stack.Navigator 
+      screenOptions={{
+        headerShown: false
+        }}>
           <Stack.Screen name="home" component={HomeScreen} />
-         <Stack.Screen name="Details" component={DetailsScreen} />
+          <Stack.Screen name="signUp" component={signUpScreen} />
       </Stack.Navigator>
-    </NavigationContainer>
+      </NavigationContainer>
   );
 }
 
+export const basicFont = require('./assets/fonts/NotoSansCJKkr-Bold.otf');
