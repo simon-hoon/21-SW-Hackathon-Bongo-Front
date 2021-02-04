@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import logo from './src/images/logoWhite.png';
+const basicFont = require('./assets/fonts/NotoSansCJKkr-Bold.otf');
 
 const colors = {
   blue: "#0036d5",
@@ -37,7 +38,7 @@ const login = {
 };
 
 const signUpLayer = {
-  fontFamily: "NotoSansCJKkr",
+  fontFamily: basicFont,
   fontSize: 17.7,
   fontWeight: "bold",
   fontStyle: "normal",
@@ -48,7 +49,7 @@ const signUpLayer = {
 };
 
 const loginLayer = {
-  fontFamily: "NotoSansCJKkr",
+  fontFamily: basicFont,
   fontSize: 17.7,
   fontWeight: "bold",
   fontStyle: "normal",
@@ -76,11 +77,13 @@ const styles = StyleSheet.create({
 });
 
 
-function HomeScreen() {
+function HomeScreen({navigation}) {
   return (
     <View style={styles.container}>
       <Image style={styles.logoContainer} source={logo} />
-      <TouchableOpacity style={styles.signUp}>
+      <TouchableOpacity 
+      style={styles.signUp}
+      onPress={() => navigation.navigate('Details')}>
         <Text style={styles.signUpLayer}>회원가입</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.login}>
@@ -91,13 +94,27 @@ function HomeScreen() {
   );
 }
 
+
+function DetailsScreen({navigation}) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button
+      title="Go to Details... again"
+      onPress={() => navigation.navigate('Details')}
+    />
+    </View>
+  );
+}
+
 const Stack = createStackNavigator();
 
 export default function App() {
   return (    <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="home" component={HomeScreen} />
+         <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
