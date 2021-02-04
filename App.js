@@ -43,7 +43,7 @@ const signUpLayer = {
   letterSpacing: 0.44,
   textAlign: "center",
   color: colors.white,
-  paddingTop: 12
+  paddingTop: 15
 };
 
 const loginLayer = {
@@ -54,7 +54,7 @@ const loginLayer = {
   letterSpacing: 0.44,
   textAlign: "center",
   color: colors.blue,
-  paddingTop: 12
+  paddingTop: 15
 };
 
 const styles = StyleSheet.create({
