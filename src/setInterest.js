@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { StyleSheet, Text, View, ScrollView, Button, Alert, TouchableOpacity, TextInput, Image } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Button, Alert, TouchableOpacity, TouchableHighlight, TextInput, Image, Modal } from "react-native";
 import 'react-native-gesture-handler';
 import {basicFont} from '../App';
 import Feather from 'react-native-vector-icons/Feather'
@@ -267,11 +267,55 @@ const signUpPage = StyleSheet.create({
     height: 90,
     alignItems: 'center',
     marginTop: 10
+  },
+  centeredView: {
+    alignItems: 'center'
+  }
+});
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
   }
 });
 
 function interestScreen({navigation}){
   const [interests, setInterests] = useState([0,0,0,0]);
+  const [modalVisible, setModalVisible] = useState(false);
+
   var interestNames = ["건축", "전기", "배달", "단순작업"];
   var isDone = false;
 
@@ -279,6 +323,10 @@ function interestScreen({navigation}){
     var index = interestNames.indexOf(name);
 
     if (index == -1) {
+      return false;
+    } else if (index == 0) {
+      // Modal 띄우기
+      setModalVisible(true);
       return false;
     }
 
@@ -295,6 +343,7 @@ function interestScreen({navigation}){
 
   return (
     <ScrollView style={signUpPage.container}>
+      <InterestModal modalVisible = { modalVisible } setModalVisible={setModalVisible}/>
       <View style ={signUpPage.header}>
           <Text style ={signUpPage.title}>인증 분야를{"\n"}선택하세요.</Text>
       </View>
@@ -331,6 +380,34 @@ function interestScreen({navigation}){
         </TouchableOpacity>
       </View>
     </ScrollView>
+  );
+}
+
+function InterestModal(props) {
+  return (
+    <Modal
+          animationType="slide"
+          transparent={true}
+          isVisible={props.modalVisible}
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Hello World!</Text>
+
+              <TouchableHighlight
+                style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+                onPress={() => {
+                  props.setModalVisible(!props.modalVisible);
+                }}
+              >
+                <Text style={styles.textStyle}>Hide Modal</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+        </Modal>
   );
 }
 
