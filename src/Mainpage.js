@@ -6,13 +6,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {basicFont} from '../App';
 
-
 import logoErect from './images/iconStrockErectWhite.png';
 import logoElect from './images/iconStrockElectBlue.png';
 import logoDelivery from './images/iconStrockDeliveryBlue.png';
 import logoSimple from './images/iconStrockSimpleBlue.png';
 import logoClock from './images/iconStrockClock.png';
 import logoStar from './images/iconStrockStar.png';
+import logoCheck from './images/iconStrockCheck.png';
+import logoClose from './images/iconStrockClose.png';
 
 import { color } from 'react-native-reanimated';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -39,13 +40,6 @@ const titleTitle= {
     paddingTop: 10
 };
 
-const searchField = {
-    width: 343,
-    height: 36,
-    borderRadius: 10,
-    backgroundColor: color.steel10
-};
-
 const layerPrefer = {
     width: 354,
     height: 28,
@@ -58,46 +52,9 @@ const layerPrefer = {
     color: color.white
 };
 
-const buttonStateDefaultErect = {
-    width: 56,
-    height: 56,
-    color: color.white
-};
 
-const buttonStateDefaultElect = {
-    width: 56,
-    height: 56,
-    color: color.white
-};
 
-const buttonStateDefaultDelivery = {
-    width: 56,
-    height: 56,
-    color: color.white
-};
-
-const buttonStateDefaultSimple = {
-    width: 56,
-    height: 56,
-    color: color.white
-};
-
-const iconStrokeWhiteErect = {
-    width: 46,
-    height: 46
-};
-
-const iconStrokeBlueElect = {
-    width: 46,
-    height: 46
-};
-
-const iconStrokeBlueDelivery = {
-    width: 46,
-    height: 46
-};
-
-const iconStrokeBlueSimple = {
+const iconStroke = {
     width: 46,
     height: 46
 };
@@ -146,7 +103,17 @@ const layerSimple = {
     color: colors.blue
 };
 
+const layoutCardTimeMoney = {
+    width: 375,
+    height: 150
+};
 //
+
+const layoutCardBase = {
+    width: 155,
+    height: 216,
+    margin: 17
+};
 
 const imgRectangle1 = {
     width: 155,
@@ -173,7 +140,7 @@ const iconStrokeClock1 = {
 
 const layerClock1 = {
     width: 31,
-    height: 21,
+    height: 20,
     //fontFamily: "NotoSansCJKkr",
     fontSize: 12.6,
     fontWeight: "normal",
@@ -189,142 +156,16 @@ const iconStrokeStar1 = {
 }
 
 const layerStar1 = {
-    width: 66,
-    height: 20.2,
+    width: 70,
+    height: 20,
     //fontFamily: "NotoSansCJKkr",
     fontSize: 12.6,
     fontWeight: "normal",
     fontStyle: "normal",
     lineHeight: 20.2,
     letterSpacing: 0,
-    color: color.blue
+    color: colors.blue
 }
-
-//
-/*
-const imgRectangle2 = {
-    width: 155,
-    height: 155
-};
-
-const title2 = {
-  width: 35,
-  height: 23,
-  fontFamily: "NotoSansCJKkr",
-  fontSize: 16.2,
-  fontWeight: "500",
-  fontStyle: "normal",
-  lineHeight: 22.7,
-  letterSpacing: 0,
-  color: "#000000"
-};
-
-const iconStrokeClock2 = {
-    width: 15,
-    height: 15
-}
-
-const layerClock2 = {
-    width: 31,
-    height: 21,
-    fontFamily: "NotoSansCJKkr",
-    fontSize: 12.6,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    lineHeight: 20.2,
-    letterSpacing: 0,
-    color: colors.colorPrimary500
-}
-
-const iconStrokeStar2 = {
-    width: 15,
-    height: 15
-}
-
-const layerStar2 = {
-    width: 66,
-    height: 20.2,
-    fontFamily: "NotoSansCJKkr",
-    fontSize: 12.6,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    lineHeight: 20.2,
-    letterSpacing: 0,
-    color: color.blue
-}
-
-//
-
-const imgRectangle3 = {
-    width: 155,
-    height: 155
-};
-
-const title3 = {
-  width: 35,
-  height: 23,
-  fontFamily: "NotoSansCJKkr",
-  fontSize: 16.2,
-  fontWeight: "500",
-  fontStyle: "normal",
-  lineHeight: 22.7,
-  letterSpacing: 0,
-  color: "#000000"
-};
-
-const iconStrokeClock3 = {
-    width: 15,
-    height: 15
-}
-
-const layerClock3 = {
-    width: 31,
-    height: 21,
-    fontFamily: "NotoSansCJKkr",
-    fontSize: 12.6,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    lineHeight: 20.2,
-    letterSpacing: 0,
-    color: colors.colorPrimary500
-}
-
-const iconStrokeStar3 = {
-    width: 15,
-    height: 15
-}
-
-const layerStar3 = {
-    width: 66,
-    height: 20.2,
-    fontFamily: "NotoSansCJKkr",
-    fontSize: 12.6,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    lineHeight: 20.2,
-    letterSpacing: 0,
-    color: color.blue
-}
-*/
-//
-
-const oval1 = {
-    width: 7,
-    height: 7,
-    backgroundColor: colors.blue
-};
-
-const oval2 = {
-    width: 7,
-    height: 7,
-    backgroundColor: colors.white
-};
-
-const oval3 = {
-    width: 7,
-    height: 7,
-    backgroundColor: colors.white
-};
 
 //
 
@@ -338,185 +179,6 @@ const layerAuto = {
     lineHeight: 28,
     letterSpacing: 0,
     color: color.white
-};
-
-//
-/*
-const imgRectangle4 = {
-    width: 155,
-    height: 155
-};
-
-const title4 = {
-  width: 35,
-  height: 23,
-  fontFamily: "NotoSansCJKkr",
-  fontSize: 16.2,
-  fontWeight: "500",
-  fontStyle: "normal",
-  lineHeight: 22.7,
-  letterSpacing: 0,
-  color: "#000000"
-};
-
-const iconStrokeClock4 = {
-    width: 15,
-    height: 15
-}
-
-const layerClock4 = {
-    width: 31,
-    height: 21,
-    fontFamily: "NotoSansCJKkr",
-    fontSize: 12.6,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    lineHeight: 20.2,
-    letterSpacing: 0,
-    color: colors.colorPrimary500
-}
-
-const iconStrokeStar4 = {
-    width: 15,
-    height: 15
-}
-
-const layerStar4 = {
-    width: 66,
-    height: 20.2,
-    fontFamily: "NotoSansCJKkr",
-    fontSize: 12.6,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    lineHeight: 20.2,
-    letterSpacing: 0,
-    color: color.blue
-}
-
-//
-
-const imgRectangle5 = {
-    width: 155,
-    height: 155
-};
-
-const title5 = {
-  width: 35,
-  height: 23,
-  fontFamily: "NotoSansCJKkr",
-  fontSize: 16.2,
-  fontWeight: "500",
-  fontStyle: "normal",
-  lineHeight: 22.7,
-  letterSpacing: 0,
-  color: "#000000"
-};
-
-const iconStrokeClock5 = {
-    width: 15,
-    height: 15
-}
-
-const layerClock5 = {
-    width: 31,
-    height: 21,
-    fontFamily: "NotoSansCJKkr",
-    fontSize: 12.6,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    lineHeight: 20.2,
-    letterSpacing: 0,
-    color: colors.colorPrimary500
-}
-
-const iconStrokeStar5 = {
-    width: 15,
-    height: 15
-}
-
-const layerStar5 = {
-    width: 66,
-    height: 20.2,
-    fontFamily: "NotoSansCJKkr",
-    fontSize: 12.6,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    lineHeight: 20.2,
-    letterSpacing: 0,
-    color: color.blue
-}
-
-//
-
-const imgRectangle6 = {
-    width: 155,
-    height: 155
-};
-
-const title6 = {
-  width: 35,
-  height: 23,
-  fontFamily: "NotoSansCJKkr",
-  fontSize: 16.2,
-  fontWeight: "500",
-  fontStyle: "normal",
-  lineHeight: 22.7,
-  letterSpacing: 0,
-  color: "#000000"
-};
-
-const iconStrokeClock6 = {
-    width: 15,
-    height: 15
-}
-
-const layerClock6 = {
-    width: 31,
-    height: 21,
-    fontFamily: "NotoSansCJKkr",
-    fontSize: 12.6,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    lineHeight: 20.2,
-    letterSpacing: 0,
-    color: colors.colorPrimary500
-}
-
-const iconStrokeStar6 = {
-    width: 15,
-    height: 15
-}
-
-const layerStar6 = {
-    width: 66,
-    height: 20.2,
-    fontFamily: "NotoSansCJKkr",
-    fontSize: 12.6,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    lineHeight: 20.2,
-    letterSpacing: 0,
-    color: color.blue
-}
-*/
-//
-
-const oval4 = {
-    width: 7,
-    height: 7,
-    backgroundColor: colors.blue
-};
-
-const oval5 = {
-    width: 7,
-    height: 7,
-    backgroundColor: colors.white
-};
-
-const oval6 = {
-    width: 7,
-    height: 7,
-    backgroundColor: colors.white
 };
 
 //
@@ -582,24 +244,55 @@ const layoutProfile = {
 const signUpPage = StyleSheet.create({
     container: {
         flex: 1,
+        padding: 22,
         backgroundColor: colors.white,
     },
     header: {
         flex: 1,
         justifyContent: 'flex-end',
-        paddingBottom: 17.4
+        paddingBottom: 17.4,
+        marginTop: 35
     },
     seperation: {
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     style: {
-        resizeMode: "contain",
+        resizeMode: "cover",
         height: 150,
-        width: 150
+        width: 150,
+        marginVertical: 10,
+        borderRadius: 7.2
     },
+    logoContainer:{
+        width: 20,
+        height: 20,
+        //marginTop: 5
+    },
+    blueCircle: {
+        width: 50,
+        height: 50,
+        borderRadius: 50 / 2,
+        backgroundColor: colors.blue,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    whiteCircle: {
+        width: 50,
+        height: 50,
+        borderRadius: 50 / 2,
+        backgroundColor: colors.white,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    centre: {
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    cardList: layoutCardTimeMoney,
     title: titleTitle,
     prefer: layerPrefer,
+    mold: layoutCardBase,
     image: imgRectangle1,
     work: title1,
     clock: iconStrokeClock1,
@@ -615,35 +308,176 @@ function MainScreen({navigation}) {
         <View style ={signUpPage.header}>
             <Text style ={signUpPage.title}>오늘의 BONGO를{"\n"}찾아보세요!</Text>
         </View>
-            <Text style ={signUpPage.prefer}>BONGO 추천 </Text>
+
+        <Text style ={signUpPage.prefer}>BONGO 추천 </Text>
         
+        <ScrollView style={signUpPage.cardList}
+        horizontal={true}
+        pagingEnabled={true}
+        >
+            <View style={signUpPage.mold}>
+                <Image style={signUpPage.style}
+                source={require("../src/images/photo.jpg")}
+                />
+                <Text>Title</Text>
+                <View style ={signUpPage.seperation}>
+                    <Image style={signUpPage.logoContainer} source={logoClock} />
+                    <Text style={signUpPage.time}>2시간</Text>
+                    <Image style={signUpPage.logoContainer} source={logoStar} />
+                    <Text style={signUpPage.money}>35,000</Text>                    
+                </View>                
+            </View>
+            
+            <View style={signUpPage.mold}>
+                <Image style={signUpPage.style}
+                source={require("../src/images/photo.jpg")}
+                />
+                <Text>Title</Text>
+                <View style ={signUpPage.seperation}>
+                    <Image style={signUpPage.logoContainer} source={logoClock} />
+                    <Text style={signUpPage.time}>4시간</Text>
+                    <Image style={signUpPage.logoContainer} source={logoStar} />
+                    <Text style={signUpPage.money}>57,560</Text>          
+                </View>                
+            </View>
+
+            <View style={signUpPage.mold}>
+                <Image style={signUpPage.style}
+                source={require("../src/images/photo.jpg")}
+                />
+                <Text>Title</Text>
+                <View style ={signUpPage.seperation}>
+                    <Image style={signUpPage.logoContainer} source={logoClock} />
+                    <Text style={signUpPage.time}>5시간</Text>
+                    <Image style={signUpPage.logoContainer} source={logoStar} />
+                    <Text style={signUpPage.money}>86,170</Text>                    
+                </View>                
+            </View>
+
+            <View style={signUpPage.mold}>
+                <Image style={signUpPage.style}
+                source={require("../src/images/photo.jpg")}
+                />
+                <Text>Title</Text>
+                <View style ={signUpPage.seperation}>
+                    <Image style={signUpPage.logoContainer} source={logoClock} />
+                    <Text style={signUpPage.time}>9시간</Text>
+                    <Image style={signUpPage.logoContainer} source={logoStar} />
+                    <Text style={signUpPage.money}>111,310</Text>                    
+                </View>                
+            </View>
+
+            <View style={signUpPage.mold}>
+                <Image style={signUpPage.style}
+                source={require("../src/images/photo.jpg")}
+                />
+                <Text>Title</Text>
+                <View style ={signUpPage.seperation}>
+                    <Image style={signUpPage.logoContainer} source={logoClock} />
+                    <Text style={signUpPage.time}>4시간</Text>
+                    <Image style={signUpPage.logoContainer} source={logoStar} />
+                    <Text style={signUpPage.money}>57,560</Text>                    
+                </View>                
+            </View>
+        </ScrollView>
+
+            <Text style ={signUpPage.prefer}>자동배치 BONGO </Text>
         <ScrollView
         horizontal = {true}
         pagingEnabled={true}
         >
-            <Image style={signUpPage.style}
-            source={require("../assets/icon.png")}
-            />
-            <Image style={signUpPage.style}
-            source={require("../assets/icon.png")}
-            />
-            <Image style={signUpPage.style}
-            source={require("../assets/icon.png")}
-            />
-            <Image style={signUpPage.style}
-            source={require("../assets/icon.png")}
-            />
-            <Image style={signUpPage.style}
-            source={require("../assets/icon.png")}
-            />
-        </ScrollView>
-        
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Button   
-            title="뒤로(디버깅용)"
-            onPress={() => navigation.push('home')}/>
-        </View>
+            <View style={signUpPage.mold}>
+                <Image style={signUpPage.style}
+                source={require("../src/images/photo.jpg")}
+                />
+                <View style={signUpPage.centre}>
+                    <View style={signUpPage.blueCircle}>
+                        <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                    </View>
+                </View>
+                <Text>Title</Text>
+                <View style ={signUpPage.seperation}>
+                    <Image style={signUpPage.logoContainer} source={logoClock} />
+                    <Text style={signUpPage.time}>9시간</Text>
+                    <Image style={signUpPage.logoContainer} source={logoStar} />
+                    <Text style={signUpPage.money}>111,310</Text>                    
+                </View>                
+            </View>
+
+            <View style={signUpPage.mold}>
+                <Image style={signUpPage.style}
+                source={require("../src/images/photo.jpg")}
+                />
+                <View style={signUpPage.centre}>
+                    <View style={signUpPage.whiteCircle}>
+                        <Image style={signUpPage.logoContainer} source={logoClose}/>
+                    </View>
+                </View>
+                <Text>Title</Text>
+                <View style ={signUpPage.seperation}>
+                    <Image style={signUpPage.logoContainer} source={logoClock} />
+                    <Text style={signUpPage.time}>9시간</Text>
+                    <Image style={signUpPage.logoContainer} source={logoStar} />
+                    <Text style={signUpPage.money}>111,310</Text>                    
+                </View>                
+            </View>
+
+            <View style={signUpPage.mold}>
+                <Image style={signUpPage.style}
+                source={require("../src/images/photo.jpg")}
+                />
+                <View style={signUpPage.centre}>
+                    <View style={signUpPage.blueCircle}>
+                        <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                    </View>
+                </View>
+                <Text>Title</Text>
+                <View style ={signUpPage.seperation}>
+                    <Image style={signUpPage.logoContainer} source={logoClock} />
+                    <Text style={signUpPage.time}>9시간</Text>
+                    <Image style={signUpPage.logoContainer} source={logoStar} />
+                    <Text style={signUpPage.money}>111,310</Text>                    
+                </View>                
+            </View>
+
+            <View style={signUpPage.mold}>
+                <Image style={signUpPage.style}
+                source={require("../src/images/photo.jpg")}
+                />
+                <View style={signUpPage.centre}>
+                    <View style={signUpPage.blueCircle}>
+                        <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                    </View>
+                </View>
+                <Text>Title</Text>
+                <View style ={signUpPage.seperation}>
+                    <Image style={signUpPage.logoContainer} source={logoClock} />
+                    <Text style={signUpPage.time}>9시간</Text>
+                    <Image style={signUpPage.logoContainer} source={logoStar} />
+                    <Text style={signUpPage.money}>111,310</Text>                    
+                </View>                
+            </View>
+
+            <View style={signUpPage.mold}>
+                <Image style={signUpPage.style}
+                source={require("../src/images/photo.jpg")}
+                />
+                <View style={signUpPage.centre}>
+                    <View style={signUpPage.blueCircle}>
+                        <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                    </View>
+                </View>
+                <Text>Title</Text>
+                <View style ={signUpPage.seperation}>
+                    <Image style={signUpPage.logoContainer} source={logoClock} />
+                    <Text style={signUpPage.time}>9시간</Text>
+                    <Image style={signUpPage.logoContainer} source={logoStar} />
+                    <Text style={signUpPage.money}>111,310</Text>                    
+                </View>                
+            </View>
+        </ScrollView>    
     </View>
+
   );
 }
 

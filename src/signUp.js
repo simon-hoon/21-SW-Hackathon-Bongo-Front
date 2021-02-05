@@ -5,7 +5,7 @@ import {basicFont} from '../App';
 import Feather from 'react-native-vector-icons/Feather'
 
 const colors = {
-  blue: "#0036d5",
+  blue: "#0046d5",
   flatBlueSkyLight: "#fdfeff",
   signatureBlue: "#0047cc",
   veryLightPink: "#d0d0d0",
