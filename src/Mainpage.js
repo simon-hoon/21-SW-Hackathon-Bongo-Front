@@ -19,7 +19,7 @@ import { color } from 'react-native-reanimated';
 import { ScrollView } from 'react-native-gesture-handler';
 
 const colors = {
-  blue: "#0036d5",
+  blue: "#0046d5",
   flatBlueSkyLight: "#fdfeff",
   lightGray: "#d0d0d0",
   signatureBlue: "#0047cc",
