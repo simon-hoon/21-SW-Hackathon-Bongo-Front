@@ -8,11 +8,9 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import SemiCircleProgressBar from "react-progressbar-semicircle";
 import SemiCircleProgress from './components/test';
 
-import ConstructImg from './images/const.png';
-import ConstructImgActive from './images/constBlue.png';
-import ElectricImg from './images/elec.png';
-import DeliveryImg from './images/delivery.png';
-import SimpleImg from './images/keyword.png';
+import MoneyImg from './images/iconStrokeMoney.png';
+import MoneyBlueImg from './images/iconStrokeMoneyBlue.png';
+import ClockImg from './images/iconStrockClock.png';
 
 const colors = {
   blue: "#0036d5",
@@ -183,14 +181,18 @@ const layerAddrDetail= {
 
 const calcPage = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 22,
+      flex: 1,
+      backgroundColor: colors.white
+  },
+  scrollView: {
     backgroundColor: colors.white,
+    flex: 1,
   },
   header: {
       flex: 1,
       justifyContent: 'flex-end',
-      paddingBottom: 17.4
+      paddingBottom: 17.4,
+      paddingTop: 25,
   },
   text: {
     flex: 1,
@@ -208,14 +210,14 @@ const calcPage = StyleSheet.create({
     height: 55,
     borderRadius: 27.6,
     backgroundColor: "#d1d1d1",
-    marginTop: 50
+    marginTop: 30
   },
   nextBtnActive: {
     alignSelf: 'stretch',
     height: 55,
     borderRadius: 27.6,
     backgroundColor: colors.signatureBlue,
-    marginTop: 50
+    marginTop: 30
   },
   doneBtn: {
     alignSelf: 'stretch',
@@ -223,7 +225,7 @@ const calcPage = StyleSheet.create({
     borderRadius: 27.6,
     backgroundColor: colors.white,
     borderColor: colors.blue,
-    marginTop: 50,
+    marginTop: 30,
     borderRadius: 27.6,
     borderStyle: "solid",
     borderWidth: 1.7,
@@ -297,7 +299,7 @@ const calcPage = StyleSheet.create({
   },
   progressBox: {
     width: '100%',
-    height: 300,
+    height: 220,
     backgroundColor: colors.white,
     borderRadius: 1,
     shadowColor: "#000",
@@ -314,7 +316,7 @@ const calcPage = StyleSheet.create({
   },
   progressPer: {
     fontFamily: basicFont,
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "500",
     fontStyle: "normal",
     letterSpacing: 0,
@@ -323,7 +325,7 @@ const calcPage = StyleSheet.create({
   },
   progressMsg: {
     fontFamily: basicFont,
-    fontSize: 30,
+    fontSize: 32,
     fontWeight: "bold",
     fontStyle: "normal",
     letterSpacing: 0,
@@ -332,12 +334,22 @@ const calcPage = StyleSheet.create({
   },
   progressDesc: {
     fontFamily: basicFont,
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "normal",
     fontStyle: "normal",
     letterSpacing: 0,
     textAlign: "center",
     color: "#898989"
+  },
+  smallImg: {
+    width:24,
+    height:24
+  },
+  divider: {
+    borderBottomColor: '#eaeaea',
+    borderBottomWidth: 2,
+    width: '100%',
+    marginTop: 10
   }
 });
 
@@ -352,40 +364,258 @@ function calculateScreen({navigation}){
     }
   }
 
+  function openTipModal() {
+    setModalVisible(true);
+    setStep(2);
+  }
+
   setTimeout(stepChanger, 3000);
 
   return (
-    <ScrollView style={calcPage.container}>
-      <View style ={calcPage.header}>
-          <Text style ={calcPage.title}>오늘 BONGO{"\n"}정산 확인</Text>
-      </View>
+  <View style={calcPage.container}>
+    <ScrollView>
+      <TipModal modalVisible = { modalVisible } setModalVisible={setModalVisible}/>
+      <View style={{padding:22}}>
+        <View style ={calcPage.header}>
+            <Text style ={calcPage.title}>오늘 BONGO{"\n"}정산 확인</Text>
+        </View>
 
-      <Text style={calcPage.text}>2021년 2월 6일</Text>
-      <View style={calcPage.progressBox}>
-        <SemiCircleProgress
-            percentage={step == 0 ? 35 : 100}
-            progressColor={colors.blue}
-        >
-          <Text style={calcPage.progressPer}>
-            {step == 0 ? '35' : '100'}%
-          </Text>
-          <Text style={calcPage.progressMsg}>
-            {step == 0 ? '2h 30m' : step == 1 ? '100,000원' : '115,000원'}
-          </Text>
-          <Text style={calcPage.progressDesc}>
-            {step == 0 ? '업무 시간이 남았어요' : '봉고가 완료되었습니다.'}
-          </Text>
-        </SemiCircleProgress>
-      </View>
+        <Text style={calcPage.text}>2021년 2월 6일</Text>
+        <View style={calcPage.progressBox}>
+          <SemiCircleProgress
+              percentage={step == 0 ? 35 : 100}
+              progressColor={colors.blue}
+          >
+            <Text style={calcPage.progressPer}>
+              {step == 0 ? '35' : '100'}%
+            </Text>
+            <Text style={calcPage.progressMsg}>
+              {step == 0 ? '2h 30m' : step == 1 ? '100,000원' : '115,000원'}
+            </Text>
+            <Text style={calcPage.progressDesc}>
+              {step == 0 ? '업무 시간이 남았어요' : '봉고가 완료되었습니다.'}
+            </Text>
+          </SemiCircleProgress>
+        </View>
 
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <TouchableOpacity style={[step == 1 ? calcPage.nextBtnActive : step == 0 ? calcPage.nextBtn : calcPage.doneBtn]}
-        onPress={() => step == 1 ? setStep(2) : null}>
-          <Text style={[step > 1 ? calcPage.nextBtnLabelActive : calcPage.nextBtnLabel]}>{step > 1 ? "정산 완료" : "정산 받기"}</Text>
-        </TouchableOpacity>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <TouchableOpacity style={[step == 1 ? calcPage.nextBtnActive : step == 0 ? calcPage.nextBtn : calcPage.doneBtn]}
+          onPress={() => step == 1 ? openTipModal() : null}>
+            <Text style={[step > 1 ? calcPage.nextBtnLabelActive : calcPage.nextBtnLabel]}>{step > 1 ? "정산 완료" : "정산 받기"}</Text>
+          </TouchableOpacity>
+        </View>
+
+        <Text style={[calcPage.text, {color:colors.blue, marginTop:30, fontSize:14}]}>
+          상세 내용
+        </Text>
+        <Text style={[calcPage.text, {marginTop:20, fontSize:16, fontWeight:'bold'}]}>
+          오늘 10시간 강남구 전기 관련 업무자
+        </Text>
+        <View>
+          <View style={[calcPage.seperation, {alignItems:'flex-start', paddingLeft:0, marginTop:25}]}>
+            <Image style={calcPage.smallImg} source={ClockImg}/>
+            <Text style={[calcPage.text, {textAlign:'left', paddingLeft:10, paddingTop:5}]}>시간</Text>
+            <Text style={[calcPage.text, {paddingTop:5, textAlign:'left'}]}>10:00 - 20:00</Text>
+          </View>
+          <View style={calcPage.divider}></View>
+          <View style={[calcPage.seperation, {alignItems:'flex-start', paddingLeft:0, marginTop:15}]}>
+            <Image style={calcPage.smallImg} source={MoneyImg}/>
+            <Text style={[calcPage.text, {textAlign:'left', paddingLeft:10, paddingTop:5}]}>일급</Text>
+            <Text style={[calcPage.text, {paddingTop:5, textAlign:'left'}]}>100,000원</Text>
+          </View>
+          <View style={calcPage.divider}></View>
+        </View>
       </View>
     </ScrollView>
+    <View style ={[menuStyle.menu, {paddingTop:20}]}>
+      <View>
+          <TouchableOpacity 
+              onPress={() => null}>
+              <Feather
+                  style ={{textAlign:'center'}}
+                  name ="dollar-sign"
+                  color ="blue"
+                  size={25}/>
+              <Text style={menuStyle.menuTextChoiced}>정산</Text>
+          </TouchableOpacity>
+      </View>
+      <View>
+          <TouchableOpacity 
+              onPress={() => navigation.navigate('main')}>
+              <Feather
+                  style ={{textAlign:'center'}}
+                  name ="home"
+                  color ="black"
+                  size={25}/>
+              <Text style={menuStyle.menuText}>메인</Text>
+          </TouchableOpacity>
+      </View>
+      <View>
+          <TouchableOpacity 
+              onPress={() => navigation.navigate('private')}>
+          <Feather
+              style ={{textAlign:'center'}}
+              name ="user"
+              color ="black"
+              size={25}/>
+          <Text style={menuStyle.menuText}>내 프로필</Text>
+          </TouchableOpacity>
+      </View>
+    </View>
+  </View> 
   );
 }
+
+function TipModal(props) {
+  return (
+    <Modal
+          animationType="slide"
+          transparent={true}
+          visible={props.modalVisible}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <View style={styles.modalLogo} >
+                <Image style={{width:50, height:50, marginTop:10}} source={MoneyBlueImg}/>
+              </View>
+              <Text style={styles.modalText}>팁 15,000원이 들어왔습니다!</Text>
+
+              <TouchableHighlight
+                style={styles.bringBtn}
+                onPress={() => {
+                  props.setModalVisible(!props.modalVisible);
+                }}
+              >
+                <Text style={styles.textStyle}>받기</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+        </Modal>
+  );
+}
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(52, 52, 52, 0.14)'
+  },
+  modalView: {
+    width: 328,
+    height: 200,
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.35,
+    shadowRadius: 3.5,
+    elevation: 5
+  },
+  openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    fontFamily: basicFont,
+    fontSize: 17.7,
+    fontWeight: "bold",
+    fontStyle: "normal",
+    letterSpacing: 0.44,
+    textAlign: "center",
+    color: colors.white,
+    paddingTop: 15
+  },
+  modalText: {
+    marginBottom: 30,
+    fontFamily: basicFont,
+    fontSize: 16,
+    fontWeight: "bold",
+    fontStyle: "normal",
+    letterSpacing: 0.44,
+    textAlign: "center",
+    color: '#000000',
+    marginTop: -50
+  },
+  bringBtn: {
+    width: 265,
+    height: 55,
+    borderRadius: 27.6,
+    backgroundColor: colors.signatureBlue
+  },
+  modalLogo: {
+    top: -70,
+    width:70,
+    height: 70,
+    borderRadius:40,
+    backgroundColor:colors.white,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.35,
+    shadowRadius: 3.5,
+    alignItems:'center'
+  }
+});
+
+const menuBox = {
+  height: 84,
+  backgroundColor: colors.flatBlueSkyLight,
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  shadowColor: "rgba(0, 0, 0, 0.24)",
+  shadowOffset: {
+    width: 0,
+    height: 8
+  },
+  shadowRadius: 20,
+  shadowOpacity: 1,
+};
+
+const menuBoxText = {
+  width: 60,
+  height: 20,
+  fontFamily: basicFont,
+  fontSize: 12,
+  fontWeight: "normal",
+  fontStyle: "normal",
+  lineHeight: 19.2,
+  letterSpacing: 0,
+  textAlign: "center",
+  color: colors.black
+};
+
+
+const menuBoxTextChoiced = {
+  width: 60,
+  height: 20,
+  fontFamily: basicFont,
+  fontSize: 12,
+  fontWeight: "normal",
+  fontStyle: "normal",
+  lineHeight: 19.2,
+  letterSpacing: 0,
+  textAlign: "center",
+  color: colors.blue
+};
+
+const menuStyle = StyleSheet.create({
+    menu: menuBox,
+    menuText: menuBoxText,
+    menuTextChoiced : menuBoxTextChoiced,
+});
 
 export default calculateScreen

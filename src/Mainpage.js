@@ -300,7 +300,7 @@ const signUpPage = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         paddingBottom: 17.4,
-        marginTop: 35
+        marginTop: 25
     },
     seperation: {
         flexDirection: 'row',
@@ -472,7 +472,15 @@ function MainScreen({navigation}) {
                     <View style={signUpPage.blueCircle}>
                         <Image style={signUpPage.logoContainer} source={logoCheck}/>
                     </View>
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>9시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>111,310</Text>                    
+                    </View>                
                 </View>
+
                 <Text>건축 기술자분..</Text>
                 <View style ={signUpPage.seperation}>
                     <Image style={signUpPage.logoContainer} source={logoClock} />
@@ -490,7 +498,15 @@ function MainScreen({navigation}) {
                     <View style={signUpPage.whiteCircle}>
                         <Image style={signUpPage.logoContainer} source={logoClose}/>
                     </View>
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>5시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>64,830</Text>                    
+                    </View>                
                 </View>
+
                 <Text>오늘 10시간 강남구..</Text>
                 <View style ={signUpPage.seperation}>
                     <Image style={signUpPage.logoContainer} source={logoClock} />
@@ -508,7 +524,15 @@ function MainScreen({navigation}) {
                     <View style={signUpPage.whiteCircle}>
                         <Image style={signUpPage.logoContainer} source={logoClose}/>
                     </View>
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>7시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>85,710</Text>                    
+                    </View>                
                 </View>
+
                 <Text>단기 계약직 공고(건설)</Text>
                 <View style ={signUpPage.seperation}>
                     <Image style={signUpPage.logoContainer} source={logoClock} />
@@ -526,7 +550,15 @@ function MainScreen({navigation}) {
                     <View style={signUpPage.blueCircle}>
                         <Image style={signUpPage.logoContainer} source={logoCheck}/>
                     </View>
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>12시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>155,270</Text>                    
+                    </View>                
                 </View>
+
                 <Text>영등포구 건설 현장</Text>
                 <View style ={signUpPage.seperation}>
                     <Image style={signUpPage.logoContainer} source={logoClock} />
@@ -544,6 +576,13 @@ function MainScreen({navigation}) {
                     <View style={signUpPage.whiteCircle}>
                         <Image style={signUpPage.logoContainer} source={logoClose}/>
                     </View>
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>3시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>44,190</Text>                    
+                    </View>                
                 </View>
                 <Text>일주일 간 도와주실 분!!</Text>
                 <View style ={signUpPage.seperation}>
@@ -572,10 +611,11 @@ function MainScreen({navigation}) {
                 </View>                
             </View>
         </ScrollView>
+
         <View style ={signUpPage.menu}>
             <View style ={{marginTop:20}}>
                 <TouchableOpacity 
-                    onPress={() => navigation.navigate('private')}>
+                    onPress={() => navigation.navigate('calculate')}>
                     <Feather
                         style ={{textAlign:'center'}}
                         name ="dollar-sign"

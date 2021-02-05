@@ -10,6 +10,8 @@ import interestScreen from './src/setInterest';
 import MainScreen from './src/Mainpage';
 import calculateScreen from './src/calculate';
 import privateScreen from './src/privateStatus';
+import completeScreen from './src/complete';
+import welcomeScreen from './src/welcome';
 
 // 업체 회원 페이지
 import recruitScreen from './src/business/Recruit.js';
@@ -144,6 +146,14 @@ export default function App() {
             headerShown:false
           }}/>
           <Stack.Screen name="private" component={privateScreen}
+          options={{
+            headerShown:false
+          }} />
+          <Stack.Screen name="complete" component={completeScreen}
+           options={{
+            headerShown:false
+          }} />
+          <Stack.Screen name="welcome" component={welcomeScreen}
           options={{
             headerShown:false
           }} />
