@@ -40,7 +40,7 @@ const titleTitle= {
     paddingTop: 10
 };
 const choiceClickedOn= {
-    width: 158,
+    width: 180,
     height: 44,
     borderRadius: 11,
     borderStyle: "solid",
@@ -49,7 +49,7 @@ const choiceClickedOn= {
 };
 
 const choiceClickedOff= {
-    width: 158,
+    width: 180,
     height: 44,
     borderRadius: 11,
     borderStyle: "solid",
@@ -172,7 +172,7 @@ const layerAddrDetail= {
 const signUpPage = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 21,
+    padding: 22,
     backgroundColor: colors.white,
   },
   header: {

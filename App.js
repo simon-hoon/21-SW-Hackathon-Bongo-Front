@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, Button, SafeAreaView, Alert ,Image, TouchableOp
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import signUpScreen from './src/signUp';
+import MainScreen from './src/Mainpage';
 
 import logo from './src/images/logoWhite.png';
 
@@ -91,7 +92,8 @@ function HomeScreen({navigation}) {
       onPress={() => navigation.navigate('signUp')}>
         <Text style={styles.signUpLayer}>회원가입</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.login}>
+      <TouchableOpacity style={styles.login}
+      onPress={() => navigation.navigate('main')}>
         <Text style={styles.loginLayer}>로그인</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
@@ -104,12 +106,14 @@ const Stack = createStackNavigator();
 export default function App() {
   
   return ( <NavigationContainer>
-      <Stack.Navigator 
-      screenOptions={{
-        headerShown: false
-        }}>
-          <Stack.Screen name="home" component={HomeScreen} />
-          <Stack.Screen name="signUp" component={signUpScreen} />
+      <Stack.Navigator>
+          <Stack.Screen name="home" component={HomeScreen} options={{headerShown:false, headerTitle:""}} />
+          <Stack.Screen name="signUp" component={signUpScreen}
+          options={{
+            headerTitle:"회원가입",
+            headerBackTitle:" ",
+          }}/>
+          <Stack.Screen name="main" component={MainScreen} />
       </Stack.Navigator>
       </NavigationContainer>
   );
