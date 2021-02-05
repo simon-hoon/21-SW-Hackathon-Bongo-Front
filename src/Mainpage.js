@@ -15,6 +15,7 @@ import logoClock from './images/iconStrockClock.png';
 import logoStar from './images/iconStrockStar.png';
 
 import { color } from 'react-native-reanimated';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const colors = {
   blue: "#0036d5",
@@ -28,7 +29,7 @@ const colors = {
 };
 
 const titleTitle= {
-    fontFamily: basicFont,
+    // fontFamily: "NotoSansCJKkr",
     fontSize: 32,
     fontWeight: "bold",
     fontStyle: "normal",
@@ -46,9 +47,9 @@ const searchField = {
 };
 
 const layerPrefer = {
-    width: 90,
+    width: 354,
     height: 28,
-    fontFamily: "NotoSansCJKkr",
+    //fontFamily: "NotoSansCJKkr",
     fontSize: 16,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -149,13 +150,14 @@ const layerSimple = {
 
 const imgRectangle1 = {
     width: 155,
-    height: 155
+    height: 155,
+    color: colors.blue
 };
 
 const title1 = {
   width: 35,
   height: 23,
-  fontFamily: "NotoSansCJKkr",
+  //fontFamily: "NotoSansCJKkr",
   fontSize: 16.2,
   fontWeight: "500",
   fontStyle: "normal",
@@ -172,7 +174,7 @@ const iconStrokeClock1 = {
 const layerClock1 = {
     width: 31,
     height: 21,
-    fontFamily: "NotoSansCJKkr",
+    //fontFamily: "NotoSansCJKkr",
     fontSize: 12.6,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -189,7 +191,7 @@ const iconStrokeStar1 = {
 const layerStar1 = {
     width: 66,
     height: 20.2,
-    fontFamily: "NotoSansCJKkr",
+    //fontFamily: "NotoSansCJKkr",
     fontSize: 12.6,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -199,7 +201,7 @@ const layerStar1 = {
 }
 
 //
-
+/*
 const imgRectangle2 = {
     width: 155,
     height: 155
@@ -303,7 +305,7 @@ const layerStar3 = {
     letterSpacing: 0,
     color: color.blue
 }
-
+*/
 //
 
 const oval1 = {
@@ -339,7 +341,7 @@ const layerAuto = {
 };
 
 //
-
+/*
 const imgRectangle4 = {
     width: 155,
     height: 155
@@ -496,7 +498,7 @@ const layerStar6 = {
     letterSpacing: 0,
     color: color.blue
 }
-
+*/
 //
 
 const oval4 = {
@@ -591,7 +593,19 @@ const signUpPage = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
+    style: {
+        resizeMode: "contain",
+        height: 150,
+        width: 150
+    },
     title: titleTitle,
+    prefer: layerPrefer,
+    image: imgRectangle1,
+    work: title1,
+    clock: iconStrokeClock1,
+    time: layerClock1,
+    star: iconStrokeStar1,
+    money: layerStar1
 });
 
 
@@ -601,7 +615,29 @@ function MainScreen({navigation}) {
         <View style ={signUpPage.header}>
             <Text style ={signUpPage.title}>오늘의 BONGO를{"\n"}찾아보세요!</Text>
         </View>
-
+            <Text style ={signUpPage.prefer}>BONGO 추천 </Text>
+        
+        <ScrollView
+        horizontal = {true}
+        pagingEnabled={true}
+        >
+            <Image style={signUpPage.style}
+            source={require("../assets/icon.png")}
+            />
+            <Image style={signUpPage.style}
+            source={require("../assets/icon.png")}
+            />
+            <Image style={signUpPage.style}
+            source={require("../assets/icon.png")}
+            />
+            <Image style={signUpPage.style}
+            source={require("../assets/icon.png")}
+            />
+            <Image style={signUpPage.style}
+            source={require("../assets/icon.png")}
+            />
+        </ScrollView>
+        
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Button   
             title="뒤로(디버깅용)"
