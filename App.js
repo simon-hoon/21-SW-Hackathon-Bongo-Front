@@ -9,6 +9,9 @@ import profileScreen from './src/setProfile';
 import interestScreen from './src/setInterest';
 import MainScreen from './src/Mainpage';
 
+// 업체 회원 페이지
+import recruitScreen from './src/business/Recruit.js';
+
 import logo from './src/images/logoWhite.png';
 
 const colors = {
@@ -95,7 +98,7 @@ function HomeScreen({navigation}) {
         <Text style={styles.signUpLayer}>회원가입</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.login}
-      onPress={() => navigation.navigate('main')}>
+      onPress={() => navigation.navigate('recruit')}>
         <Text style={styles.loginLayer}>로그인</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
@@ -129,6 +132,11 @@ export default function App() {
           options={{
             headerShown:false
           }} />
+          <Stack.Screen name="recruit" component={recruitScreen}
+          options={{
+            headerTitle:"모집하기",
+            headerBackTitle:" ",
+          }}/>
       </Stack.Navigator>
       </NavigationContainer>
   );
