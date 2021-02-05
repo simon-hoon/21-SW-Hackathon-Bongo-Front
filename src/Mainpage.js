@@ -45,7 +45,7 @@ const titleTitle= {
 const layerPrefer = {
     width: 354,
     height: 28,
-    fontFamily: "NotoSansCJKkr",
+    fontFamily: basicFont,
     fontSize: 16,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -66,7 +66,7 @@ const iconStroke = {
 const layerErect = {
     width: 28,
     height: 22.1,
-    //fontFamily: "NotoSansCJKkr",
+    fontFamily: basicFont,
     fontSize: 14.4,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -77,7 +77,7 @@ const layerErect = {
 const layerElect = {
     width: 28,
     height: 22.1,
-    //fontFamily: "NotoSansCJKkr",
+    fontFamily: basicFont,
     fontSize: 14.4,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -88,7 +88,7 @@ const layerElect = {
 const layerDelivery = {
     width: 28,
     height: 22.1,
-    //fontFamily: "NotoSansCJKkr",
+    fontFamily: basicFont,
     fontSize: 14.4,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -99,7 +99,7 @@ const layerDelivery = {
 const layerSimple = {
     width: 28,
     height: 22.1,
-    //fontFamily: "NotoSansCJKkr",
+    fontFamily: basicFont,
     fontSize: 14.4,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -109,7 +109,7 @@ const layerSimple = {
 
 const layoutCardTimeMoney = {
     
-    height: 150
+    height: 250
 };
 //
 
@@ -129,7 +129,7 @@ const imgRectangle1 = {
 const title1 = {
   width: 35,
   height: 23,
-  //fontFamily: "NotoSansCJKkr",
+  fontFamily: basicFont,
   fontSize: 16.2,
   fontWeight: "500",
   fontStyle: "normal",
@@ -147,7 +147,7 @@ const layerClock1 = {
     width: 31,
     height: 20,
     marginTop: 1,
-    //fontFamily: "NotoSansCJKkr",
+    fontFamily: basicFont,
     fontSize: 12.6,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -165,7 +165,7 @@ const layerStar1 = {
     width: 70,
     height: 20,
     marginTop: 1,
-    //fontFamily: "NotoSansCJKkr",
+    fontFamily: basicFont,
     fontSize: 12.6,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -210,7 +210,7 @@ const iconStrokeProfile = {
 const layoutMoney = {
     width: 23,
     height: 20,
-    fontFamily: "NotoSansCJKkr",
+    fontFamily: basicFont,
     fontSize: 12,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -223,7 +223,7 @@ const layoutMoney = {
 const layoutHome = {
     width: 23,
     height: 20,
-    fontFamily: "NotoSansCJKkr",
+    fontFamily: basicFont,
     fontSize: 12,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -236,7 +236,7 @@ const layoutHome = {
 const layoutProfile = {
     width: 23,
     height: 20,
-    fontFamily: "NotoSansCJKkr",
+    fontFamily: basicFont,
     fontSize: 12,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -459,7 +459,7 @@ function MainScreen({navigation}) {
             </ScrollView>
 
                 <Text style ={signUpPage.prefer}>자동배치 BONGO </Text>
-            <ScrollView style={signUpPage.cardList}
+            <ScrollView style={[signUpPage.cardList, {paddingBottom:40}]}
             horizontal = {true}
             pagingEnabled={true}
             showsHorizontalScrollIndicator={false}
@@ -473,22 +473,14 @@ function MainScreen({navigation}) {
                         <View style={signUpPage.blueCircle}>
                             <Image style={signUpPage.logoContainer} source={logoCheck}/>
                         </View>
-                        <Text>Title</Text>
+                        <Text>건축 기술자분..</Text>
                         <View style ={signUpPage.seperation}>
                             <Image style={signUpPage.logoContainer} source={logoClock} />
                             <Text style={signUpPage.time}>9시간</Text>
                             <Image style={signUpPage.logoContainer} source={logoStar} />
                             <Text style={signUpPage.money}>111,310</Text>                    
                         </View>                
-                    </View>
-
-                    <Text>건축 기술자분..</Text>
-                    <View style ={signUpPage.seperation}>
-                        <Image style={signUpPage.logoContainer} source={logoClock} />
-                        <Text style={signUpPage.time}>12시간</Text>
-                        <Image style={signUpPage.logoContainer} source={logoStar} />
-                        <Text style={signUpPage.money}>120,000</Text>                    
-                    </View>                
+                    </View>             
                 </View>
 
                 <View style={signUpPage.mold}>
@@ -499,22 +491,14 @@ function MainScreen({navigation}) {
                         <View style={signUpPage.whiteCircle}>
                             <Image style={signUpPage.logoContainer} source={logoClose}/>
                         </View>
-                        <Text>Title</Text>
+                        <Text>오늘 10시간 강남구..</Text>
                         <View style ={signUpPage.seperation}>
                             <Image style={signUpPage.logoContainer} source={logoClock} />
                             <Text style={signUpPage.time}>5시간</Text>
                             <Image style={signUpPage.logoContainer} source={logoStar} />
                             <Text style={signUpPage.money}>64,830</Text>                    
                         </View>                
-                    </View>
-
-                    <Text>오늘 10시간 강남구..</Text>
-                    <View style ={signUpPage.seperation}>
-                        <Image style={signUpPage.logoContainer} source={logoClock} />
-                        <Text style={signUpPage.time}>10시간</Text>
-                        <Image style={signUpPage.logoContainer} source={logoStar} />
-                        <Text style={signUpPage.money}>100,000</Text>                    
-                    </View>                
+                    </View>            
                 </View>
 
                 <View style={signUpPage.mold}>
@@ -525,22 +509,14 @@ function MainScreen({navigation}) {
                         <View style={signUpPage.whiteCircle}>
                             <Image style={signUpPage.logoContainer} source={logoClose}/>
                         </View>
-                        <Text>Title</Text>
+                        <Text>단기 계약직 공고(건설)</Text>
                         <View style ={signUpPage.seperation}>
                             <Image style={signUpPage.logoContainer} source={logoClock} />
                             <Text style={signUpPage.time}>7시간</Text>
                             <Image style={signUpPage.logoContainer} source={logoStar} />
                             <Text style={signUpPage.money}>85,710</Text>                    
                         </View>                
-                    </View>
-
-                    <Text>단기 계약직 공고(건설)</Text>
-                    <View style ={signUpPage.seperation}>
-                        <Image style={signUpPage.logoContainer} source={logoClock} />
-                        <Text style={signUpPage.time}>7시간</Text>
-                        <Image style={signUpPage.logoContainer} source={logoStar} />
-                        <Text style={signUpPage.money}>협의 후 지급</Text>                    
-                    </View>                
+                    </View>            
                 </View>
 
                 <View style={signUpPage.mold}>
@@ -551,22 +527,14 @@ function MainScreen({navigation}) {
                         <View style={signUpPage.blueCircle}>
                             <Image style={signUpPage.logoContainer} source={logoCheck}/>
                         </View>
-                        <Text>Title</Text>
+                        <Text>영등포구 건설 현장</Text>
                         <View style ={signUpPage.seperation}>
                             <Image style={signUpPage.logoContainer} source={logoClock} />
                             <Text style={signUpPage.time}>12시간</Text>
                             <Image style={signUpPage.logoContainer} source={logoStar} />
                             <Text style={signUpPage.money}>155,270</Text>                    
                         </View>                
-                    </View>
-
-                    <Text>영등포구 건설 현장</Text>
-                    <View style ={signUpPage.seperation}>
-                        <Image style={signUpPage.logoContainer} source={logoClock} />
-                        <Text style={signUpPage.time}>12시간</Text>
-                        <Image style={signUpPage.logoContainer} source={logoStar} />
-                        <Text style={signUpPage.money}>150,000</Text>                    
-                    </View>                
+                    </View>         
                 </View>
 
                 <View style={signUpPage.mold}>
@@ -577,7 +545,7 @@ function MainScreen({navigation}) {
                         <View style={signUpPage.whiteCircle}>
                             <Image style={signUpPage.logoContainer} source={logoClose}/>
                         </View>
-                        <Text>Title</Text>
+                        <Text>일주일 간 도와주실 분!!</Text>
                         <View style ={signUpPage.seperation}>
                             <Image style={signUpPage.logoContainer} source={logoClock} />
                             <Text style={signUpPage.time}>3시간</Text>
@@ -585,13 +553,6 @@ function MainScreen({navigation}) {
                             <Text style={signUpPage.money}>44,190</Text>                    
                         </View>                
                     </View>
-                    <Text>일주일 간 도와주실 분!!</Text>
-                    <View style ={signUpPage.seperation}>
-                        <Image style={signUpPage.logoContainer} source={logoClock} />
-                        <Text style={signUpPage.time}>3시간</Text>
-                        <Image style={signUpPage.logoContainer} source={logoStar} />
-                        <Text style={signUpPage.money}>40,000</Text>                    
-                    </View>                
                 </View>
 
                 <View style={signUpPage.mold}>
