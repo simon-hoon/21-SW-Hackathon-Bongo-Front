@@ -30,7 +30,7 @@ const colors = {
 };
 
 const titleTitle= {
-    //fontFamily: basicFont,
+    fontFamily: basicFont,
     fontSize: 32,
     fontWeight: "bold",
     fontStyle: "normal",
@@ -45,7 +45,7 @@ const titleTitle= {
 const layerPrefer = {
     width: 354,
     height: 28,
-    //fontFamily: "NotoSansCJKkr",
+    fontFamily: "NotoSansCJKkr",
     fontSize: 16,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -265,7 +265,7 @@ const menuBox = {
 const menuBoxText = {
   width: 60,
   height: 20,
-  //fontFamily: basicFont,
+  fontFamily: basicFont,
   fontSize: 12,
   fontWeight: "normal",
   fontStyle: "normal",
@@ -279,7 +279,7 @@ const menuBoxText = {
 const menuBoxTextChoiced = {
   width: 60,
   height: 20,
-  //fontFamily: basicFont,
+  fontFamily: basicFont,
   fontSize: 12,
   fontWeight: "normal",
   fontStyle: "normal",
@@ -362,256 +362,257 @@ const signUpPage = StyleSheet.create({
 function MainScreen({navigation}) {
   return (
     <View style={signUpPage.container}>
-        <View style ={signUpPage.header}>
-            <Text style ={signUpPage.title}>오늘의 BONGO를{"\n"}찾아보세요!</Text>
-        </View>
-            <SearchBar
-                platform={'ios'}
-                placeholder={' 검색하세요.'}
-            />
-        
-        
-        <Text style ={signUpPage.prefer}>BONGO 추천 </Text>
-        
-        <ScrollView style={signUpPage.cardList}
-        horizontal={true}
-        pagingEnabled={true}
-        showsHorizontalScrollIndicator={false}
-        >
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/1.jpg")}
-                />
-                <Text>열선 관련 급 봉고!</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>2시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>35,000</Text>                    
-                </View>                
+        <ScrollView>
+            <View style ={signUpPage.header}>
+                <Text style ={signUpPage.title}>오늘의 BONGO를{"\n"}찾아보세요!</Text>
             </View>
+                <SearchBar
+                    platform={'ios'}
+                    placeholder={' 검색하세요.'}
+                />
             
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/2.jpg")}
-                />
-                <Text>건설 기사분 찾습니다!</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>4시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>60,000</Text>          
-                </View>                
-            </View>
-
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/3.jpg")}
-                />
-                <Text>아파트 건설 현장 지원 공고</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>5시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>80,000</Text>                    
-                </View>                
-            </View>
-
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/1.jpg")}
-                />
-                <Text>오랫 동안 열심히 일 할..</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>9시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>110,000</Text>                    
-                </View>                
-            </View>
-
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/2.jpg")}
-                />
-                <Text>건설 현장 근무(6개월..</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>4시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>57,000</Text>                    
-                </View>                
-            </View>
-
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/3.jpg")}
-                />
-                <Text>건설회사 장기 (1년 이상..</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>8시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>협의 후 지급</Text>                    
-                </View>                
-            </View>
-        </ScrollView>
-
-            <Text style ={signUpPage.prefer}>자동배치 BONGO </Text>
-        <ScrollView style={signUpPage.cardList}
-        horizontal = {true}
-        pagingEnabled={true}
-        showsHorizontalScrollIndicator={false}
-        
-        >
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/1.jpg")}
-                />
-                <View style={signUpPage.centre}>
-                    <View style={signUpPage.blueCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoCheck}/>
-                    </View>
-                    <Text>Title</Text>
+            
+            <Text style ={signUpPage.prefer}>BONGO 추천 </Text>
+            
+            <ScrollView style={signUpPage.cardList}
+            horizontal={true}
+            pagingEnabled={true}
+            showsHorizontalScrollIndicator={false}
+            >
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/1.jpg")}
+                    />
+                    <Text>열선 관련 급 봉고!</Text>
                     <View style ={signUpPage.seperation}>
                         <Image style={signUpPage.logoContainer} source={logoClock} />
-                        <Text style={signUpPage.time}>9시간</Text>
+                        <Text style={signUpPage.time}>2시간</Text>
                         <Image style={signUpPage.logoContainer} source={logoStar} />
-                        <Text style={signUpPage.money}>111,310</Text>                    
+                        <Text style={signUpPage.money}>35,000</Text>                    
+                    </View>                
+                </View>
+                
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/2.jpg")}
+                    />
+                    <Text>건설 기사분 찾습니다!</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>4시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>60,000</Text>          
                     </View>                
                 </View>
 
-                <Text>건축 기술자분..</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>12시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>120,000</Text>                    
-                </View>                
-            </View>
-
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/2.jpg")}
-                />
-                <View style={signUpPage.centre}>
-                    <View style={signUpPage.whiteCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoClose}/>
-                    </View>
-                    <Text>Title</Text>
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/3.jpg")}
+                    />
+                    <Text>아파트 건설 현장 지원 공고</Text>
                     <View style ={signUpPage.seperation}>
                         <Image style={signUpPage.logoContainer} source={logoClock} />
                         <Text style={signUpPage.time}>5시간</Text>
                         <Image style={signUpPage.logoContainer} source={logoStar} />
-                        <Text style={signUpPage.money}>64,830</Text>                    
+                        <Text style={signUpPage.money}>80,000</Text>                    
                     </View>                
                 </View>
 
-                <Text>오늘 10시간 강남구..</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>10시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>100,000</Text>                    
-                </View>                
-            </View>
-
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/3.jpg")}
-                />
-                <View style={signUpPage.centre}>
-                    <View style={signUpPage.whiteCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoClose}/>
-                    </View>
-                    <Text>Title</Text>
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/1.jpg")}
+                    />
+                    <Text>오랫 동안 열심히 일 할..</Text>
                     <View style ={signUpPage.seperation}>
                         <Image style={signUpPage.logoContainer} source={logoClock} />
-                        <Text style={signUpPage.time}>7시간</Text>
+                        <Text style={signUpPage.time}>9시간</Text>
                         <Image style={signUpPage.logoContainer} source={logoStar} />
-                        <Text style={signUpPage.money}>85,710</Text>                    
+                        <Text style={signUpPage.money}>110,000</Text>                    
                     </View>                
                 </View>
 
-                <Text>단기 계약직 공고(건설)</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>7시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>협의 후 지급</Text>                    
-                </View>                
-            </View>
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/2.jpg")}
+                    />
+                    <Text>건설 현장 근무(6개월..</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>4시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>57,000</Text>                    
+                    </View>                
+                </View>
 
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/1.jpg")}
-                />
-                <View style={signUpPage.centre}>
-                    <View style={signUpPage.blueCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/3.jpg")}
+                    />
+                    <Text>건설회사 장기 (1년 이상..</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>8시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>협의 후 지급</Text>                    
+                    </View>                
+                </View>
+            </ScrollView>
+
+                <Text style ={signUpPage.prefer}>자동배치 BONGO </Text>
+            <ScrollView style={signUpPage.cardList}
+            horizontal = {true}
+            pagingEnabled={true}
+            showsHorizontalScrollIndicator={false}
+            
+            >
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/1.jpg")}
+                    />
+                    <View style={signUpPage.centre}>
+                        <View style={signUpPage.blueCircle}>
+                            <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                        </View>
+                        <Text>Title</Text>
+                        <View style ={signUpPage.seperation}>
+                            <Image style={signUpPage.logoContainer} source={logoClock} />
+                            <Text style={signUpPage.time}>9시간</Text>
+                            <Image style={signUpPage.logoContainer} source={logoStar} />
+                            <Text style={signUpPage.money}>111,310</Text>                    
+                        </View>                
                     </View>
-                    <Text>Title</Text>
+
+                    <Text>건축 기술자분..</Text>
                     <View style ={signUpPage.seperation}>
                         <Image style={signUpPage.logoContainer} source={logoClock} />
                         <Text style={signUpPage.time}>12시간</Text>
                         <Image style={signUpPage.logoContainer} source={logoStar} />
-                        <Text style={signUpPage.money}>155,270</Text>                    
+                        <Text style={signUpPage.money}>120,000</Text>                    
                     </View>                
                 </View>
 
-                <Text>영등포구 건설 현장</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>12시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>150,000</Text>                    
-                </View>                
-            </View>
-
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/2.jpg")}
-                />
-                <View style={signUpPage.centre}>
-                    <View style={signUpPage.whiteCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoClose}/>
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/2.jpg")}
+                    />
+                    <View style={signUpPage.centre}>
+                        <View style={signUpPage.whiteCircle}>
+                            <Image style={signUpPage.logoContainer} source={logoClose}/>
+                        </View>
+                        <Text>Title</Text>
+                        <View style ={signUpPage.seperation}>
+                            <Image style={signUpPage.logoContainer} source={logoClock} />
+                            <Text style={signUpPage.time}>5시간</Text>
+                            <Image style={signUpPage.logoContainer} source={logoStar} />
+                            <Text style={signUpPage.money}>64,830</Text>                    
+                        </View>                
                     </View>
-                    <Text>Title</Text>
+
+                    <Text>오늘 10시간 강남구..</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>10시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>100,000</Text>                    
+                    </View>                
+                </View>
+
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/3.jpg")}
+                    />
+                    <View style={signUpPage.centre}>
+                        <View style={signUpPage.whiteCircle}>
+                            <Image style={signUpPage.logoContainer} source={logoClose}/>
+                        </View>
+                        <Text>Title</Text>
+                        <View style ={signUpPage.seperation}>
+                            <Image style={signUpPage.logoContainer} source={logoClock} />
+                            <Text style={signUpPage.time}>7시간</Text>
+                            <Image style={signUpPage.logoContainer} source={logoStar} />
+                            <Text style={signUpPage.money}>85,710</Text>                    
+                        </View>                
+                    </View>
+
+                    <Text>단기 계약직 공고(건설)</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>7시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>협의 후 지급</Text>                    
+                    </View>                
+                </View>
+
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/1.jpg")}
+                    />
+                    <View style={signUpPage.centre}>
+                        <View style={signUpPage.blueCircle}>
+                            <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                        </View>
+                        <Text>Title</Text>
+                        <View style ={signUpPage.seperation}>
+                            <Image style={signUpPage.logoContainer} source={logoClock} />
+                            <Text style={signUpPage.time}>12시간</Text>
+                            <Image style={signUpPage.logoContainer} source={logoStar} />
+                            <Text style={signUpPage.money}>155,270</Text>                    
+                        </View>                
+                    </View>
+
+                    <Text>영등포구 건설 현장</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>12시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>150,000</Text>                    
+                    </View>                
+                </View>
+
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/2.jpg")}
+                    />
+                    <View style={signUpPage.centre}>
+                        <View style={signUpPage.whiteCircle}>
+                            <Image style={signUpPage.logoContainer} source={logoClose}/>
+                        </View>
+                        <Text>Title</Text>
+                        <View style ={signUpPage.seperation}>
+                            <Image style={signUpPage.logoContainer} source={logoClock} />
+                            <Text style={signUpPage.time}>3시간</Text>
+                            <Image style={signUpPage.logoContainer} source={logoStar} />
+                            <Text style={signUpPage.money}>44,190</Text>                    
+                        </View>                
+                    </View>
+                    <Text>일주일 간 도와주실 분!!</Text>
                     <View style ={signUpPage.seperation}>
                         <Image style={signUpPage.logoContainer} source={logoClock} />
                         <Text style={signUpPage.time}>3시간</Text>
                         <Image style={signUpPage.logoContainer} source={logoStar} />
-                        <Text style={signUpPage.money}>44,190</Text>                    
+                        <Text style={signUpPage.money}>40,000</Text>                    
                     </View>                
                 </View>
-                <Text>일주일 간 도와주실 분!!</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>3시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>40,000</Text>                    
-                </View>                
-            </View>
 
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/3.jpg")}
-                />
-                <View style={signUpPage.centre}>
-                    <View style={signUpPage.whiteCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoClose}/>
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/3.jpg")}
+                    />
+                    <View style={signUpPage.centre}>
+                        <View style={signUpPage.whiteCircle}>
+                            <Image style={signUpPage.logoContainer} source={logoClose}/>
+                        </View>
                     </View>
+                    <Text>용접 기사분 구합니다.</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>8시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>90,000</Text>                    
+                    </View>                
                 </View>
-                <Text>용접 기사분 구합니다.</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>8시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>90,000</Text>                    
-                </View>                
-            </View>
+            </ScrollView>   
         </ScrollView>
-
         <View style ={signUpPage.menu}>
             <View style ={{marginTop:20}}>
                 <TouchableOpacity 
@@ -646,7 +647,7 @@ function MainScreen({navigation}) {
                 <Text style={signUpPage.menuText}>내 프로필</Text>
                 </TouchableOpacity>
             </View>
-        </View>   
+        </View>
     </View>
 
   );
