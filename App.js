@@ -8,6 +8,7 @@ import signUpScreen from './src/signUp';
 import profileScreen from './src/setProfile';
 import interestScreen from './src/setInterest';
 import MainScreen from './src/Mainpage';
+import privateScreen from './src/privateStatus';
 
 // 업체 회원 페이지
 import recruitScreen from './src/business/Recruit.js';
@@ -137,6 +138,10 @@ export default function App() {
             headerTitle:"모집하기",
             headerBackTitle:" ",
           }}/>
+          <Stack.Screen name="private" component={privateScreen}
+          options={{
+            headerShown:false
+          }} />
       </Stack.Navigator>
       </NavigationContainer>
   );
