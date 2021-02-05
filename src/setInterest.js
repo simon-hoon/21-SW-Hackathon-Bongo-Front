@@ -10,6 +10,7 @@ import ConstructImgActive from './images/constBlue.png';
 import ElectricImg from './images/elec.png';
 import DeliveryImg from './images/delivery.png';
 import SimpleImg from './images/keyword.png';
+import StarImg from './images/iconStrokeStarBlue.png';
 
 const colors = {
   blue: "#0036d5",
@@ -278,9 +279,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 22,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(52, 52, 52, 0.14)'
   },
   modalView: {
+    width: 328,
+    height: 200,
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
@@ -291,8 +297,8 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowOpacity: 1,
+    shadowRadius: 7,
     elevation: 5
   },
   openButton: {
@@ -302,13 +308,46 @@ const styles = StyleSheet.create({
     elevation: 2
   },
   textStyle: {
-    color: "white",
+    fontFamily: basicFont,
+    fontSize: 17.7,
     fontWeight: "bold",
-    textAlign: "center"
+    fontStyle: "normal",
+    letterSpacing: 0.44,
+    textAlign: "center",
+    color: colors.white,
+    paddingTop: 15
   },
   modalText: {
-    marginBottom: 15,
-    textAlign: "center"
+    marginBottom: 30,
+    fontFamily: basicFont,
+    fontSize: 16,
+    fontWeight: "bold",
+    fontStyle: "normal",
+    letterSpacing: 0.44,
+    textAlign: "center",
+    color: '#000000',
+    marginTop: -50
+  },
+  bringBtn: {
+    width: 265,
+    height: 55,
+    borderRadius: 27.6,
+    backgroundColor: colors.signatureBlue
+  },
+  modalLogo: {
+    top: -70,
+    width:70,
+    height: 70,
+    borderRadius:40,
+    backgroundColor:colors.white,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 1,
+    shadowRadius: 7,
+    alignItems:'center'
   }
 });
 
@@ -327,7 +366,6 @@ function interestScreen({navigation}){
     } else if (index == 0) {
       // Modal 띄우기
       setModalVisible(true);
-      return false;
     }
 
     interests[index] = interests[index] ? 0 : 1;
@@ -384,26 +422,28 @@ function interestScreen({navigation}){
 }
 
 function InterestModal(props) {
+  console.log('Visible', props.modalVisible);
+
   return (
     <Modal
           animationType="slide"
           transparent={true}
-          isVisible={props.modalVisible}
-          onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-          }}
+          visible={props.modalVisible}
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <Text style={styles.modalText}>Hello World!</Text>
+              <View style={styles.modalLogo} >
+                <Image style={{width:50, height:50, marginTop:10}} source={StarImg}/>
+              </View>
+              <Text style={styles.modalText}>건축 인증 자격증을 올려주세요</Text>
 
               <TouchableHighlight
-                style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+                style={styles.bringBtn}
                 onPress={() => {
                   props.setModalVisible(!props.modalVisible);
                 }}
               >
-                <Text style={styles.textStyle}>Hide Modal</Text>
+                <Text style={styles.textStyle}>가져오기</Text>
               </TouchableHighlight>
             </View>
           </View>
