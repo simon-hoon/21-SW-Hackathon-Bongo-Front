@@ -182,7 +182,6 @@ const certText = {
 const privateStyle = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'space-around',
         backgroundColor: colors.white,
     },
     header: {
@@ -199,7 +198,8 @@ const privateStyle = StyleSheet.create({
     backgroundColor: colors.white,
     },
     layoutBarLeftTitle :{
-    height: 146
+      paddingTop: 25,
+      marginBottom: 15
     },
     interestBox : {
     height: 56
@@ -261,8 +261,8 @@ const privateStyle = StyleSheet.create({
 
 function privateScreen({navigation}) {
   return (
-    <SafeAreaView style={privateStyle.container}>
-      <ScrollView style={privateStyle.scrollView}>
+    <View style={privateStyle.container}>
+      <ScrollView>
         <View style ={privateStyle.layoutBarLeftTitle}>
             <Text style ={privateStyle.title}>내 BONGO{"\n"}프로필</Text>
         </View>
@@ -357,10 +357,10 @@ function privateScreen({navigation}) {
               </Text>
             </View>
         </ScrollView>
-        <View style ={privateStyle.menu}>
-            <View style ={{marginTop:20}}>
+        <View style ={[privateStyle.menu, {paddingTop:20}]}>
+            <View>
                 <TouchableOpacity 
-                    onPress={() => navigation.navigate('main')}>
+                    onPress={() => navigation.navigate('calculate')}>
                     <Feather
                         style ={{textAlign:'center'}}
                         name ="dollar-sign"
@@ -369,7 +369,7 @@ function privateScreen({navigation}) {
                     <Text style={privateStyle.menuText}>정산</Text>
                 </TouchableOpacity>
             </View>
-            <View style ={{marginTop:20}}>
+            <View>
                 <TouchableOpacity 
                     onPress={() => navigation.navigate('main')}>
                     <Feather
@@ -380,7 +380,7 @@ function privateScreen({navigation}) {
                     <Text style={privateStyle.menuText}>메인</Text>
                 </TouchableOpacity>
             </View>
-            <View style ={{marginTop:20}}>
+            <View>
                 <TouchableOpacity 
                     onPress={() => {}}>
                 <Feather
@@ -392,7 +392,7 @@ function privateScreen({navigation}) {
                 </TouchableOpacity>
             </View>
         </View>
-    </SafeAreaView>
+    </View>
   );
 }
 

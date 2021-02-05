@@ -8,8 +8,10 @@ import signUpScreen from './src/signUp';
 import profileScreen from './src/setProfile';
 import interestScreen from './src/setInterest';
 import MainScreen from './src/Mainpage';
+import calculateScreen from './src/calculate';
 import privateScreen from './src/privateStatus';
 import completeScreen from './src/complete';
+import welcomeScreen from './src/welcome';
 
 // 업체 회원 페이지
 import recruitScreen from './src/business/Recruit.js';
@@ -139,11 +141,19 @@ export default function App() {
             headerTitle:"모집하기",
             headerBackTitle:" ",
           }}/>
+          <Stack.Screen name="calculate" component={calculateScreen}
+          options={{
+            headerShown:false
+          }}/>
           <Stack.Screen name="private" component={privateScreen}
           options={{
             headerShown:false
           }} />
           <Stack.Screen name="complete" component={completeScreen}
+           options={{
+            headerShown:false
+          }} />
+          <Stack.Screen name="welcome" component={welcomeScreen}
           options={{
             headerShown:false
           }} />
