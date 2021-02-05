@@ -274,7 +274,7 @@ function privateScreen({navigation}) {
         <View style ={privateStyle.menu}>
             <View style ={{marginTop:20}}>
                 <TouchableOpacity 
-                    onPress={() => navigation.navigate('main')}>
+                    onPress={() => navigation.navigate('calculate')}>
                     <Feather
                         style ={{textAlign:'center'}}
                         name ="dollar-sign"

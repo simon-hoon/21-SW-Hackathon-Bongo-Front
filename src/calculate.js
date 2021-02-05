@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { StyleSheet, Text, View, ScrollView, Button, Alert, TouchableOpacity, TouchableHighlight, TextInput, Image, Modal } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Button, Alert, TouchableOpacity, TouchableHighlight, TextInput, Image, Modal, SafeAreaView } from "react-native";
 import 'react-native-gesture-handler';
 import {basicFont} from '../App';
 import Feather from 'react-native-vector-icons/Feather'
@@ -180,15 +180,19 @@ const layerAddrDetail= {
 
 const calcPage = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 22,
+      flex: 1,
+      justifyContent: 'space-around',
+      backgroundColor: colors.white
+  },
+  scrollView: {
     backgroundColor: colors.white,
+    flex: 1,
   },
   header: {
       flex: 1,
       justifyContent: 'flex-end',
       paddingBottom: 17.4,
-      paddingTop: 15
+      paddingTop: 25,
   },
   text: {
     flex: 1,
@@ -363,59 +367,146 @@ function calculateScreen({navigation}){
   setTimeout(stepChanger, 3000);
 
   return (
-    <ScrollView style={calcPage.container}>
-      <View style ={calcPage.header}>
-          <Text style ={calcPage.title}>오늘 BONGO{"\n"}정산 확인</Text>
-      </View>
-
-      <Text style={calcPage.text}>2021년 2월 6일</Text>
-      <View style={calcPage.progressBox}>
-        <SemiCircleProgress
-            percentage={step == 0 ? 35 : 100}
-            progressColor={colors.blue}
-        >
-          <Text style={calcPage.progressPer}>
-            {step == 0 ? '35' : '100'}%
-          </Text>
-          <Text style={calcPage.progressMsg}>
-            {step == 0 ? '2h 30m' : step == 1 ? '100,000원' : '115,000원'}
-          </Text>
-          <Text style={calcPage.progressDesc}>
-            {step == 0 ? '업무 시간이 남았어요' : '봉고가 완료되었습니다.'}
-          </Text>
-        </SemiCircleProgress>
-      </View>
-
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <TouchableOpacity style={[step == 1 ? calcPage.nextBtnActive : step == 0 ? calcPage.nextBtn : calcPage.doneBtn]}
-        onPress={() => step == 1 ? setStep(2) : null}>
-          <Text style={[step > 1 ? calcPage.nextBtnLabelActive : calcPage.nextBtnLabel]}>{step > 1 ? "정산 완료" : "정산 받기"}</Text>
-        </TouchableOpacity>
-      </View>
-
-      <Text style={[calcPage.text, {color:colors.blue, marginTop:30, fontSize:14}]}>
-        상세 내용
-      </Text>
-      <Text style={[calcPage.text, {marginTop:20, fontSize:16, fontWeight:'bold'}]}>
-        오늘 10시간 강남구 전기 관련 업무자
-      </Text>
-
-      <View>
-        <View style={[calcPage.seperation, {alignItems:'flex-start', paddingLeft:0, marginTop:25}]}>
-          <Image style={calcPage.smallImg} source={ClockImg}/>
-          <Text style={[calcPage.text, {textAlign:'left', paddingLeft:10, paddingTop:5}]}>시간</Text>
-          <Text style={[calcPage.text, {paddingTop:5, textAlign:'left'}]}>10:00 - 20:00</Text>
+  <View style={calcPage.container}>
+    <ScrollView style={calcPage.ScrollView}>
+      <View style={{padding:22}}>
+        <View style ={calcPage.header}>
+            <Text style ={calcPage.title}>오늘 BONGO{"\n"}정산 확인</Text>
         </View>
-        <View style={calcPage.divider}></View>
-        <View style={[calcPage.seperation, {alignItems:'flex-start', paddingLeft:0, marginTop:15}]}>
-          <Image style={calcPage.smallImg} source={MoneyImg}/>
-          <Text style={[calcPage.text, {textAlign:'left', paddingLeft:10, paddingTop:5}]}>일급</Text>
-          <Text style={[calcPage.text, {paddingTop:5, textAlign:'left'}]}>100,000원</Text>
+
+        <Text style={calcPage.text}>2021년 2월 6일</Text>
+        <View style={calcPage.progressBox}>
+          <SemiCircleProgress
+              percentage={step == 0 ? 35 : 100}
+              progressColor={colors.blue}
+          >
+            <Text style={calcPage.progressPer}>
+              {step == 0 ? '35' : '100'}%
+            </Text>
+            <Text style={calcPage.progressMsg}>
+              {step == 0 ? '2h 30m' : step == 1 ? '100,000원' : '115,000원'}
+            </Text>
+            <Text style={calcPage.progressDesc}>
+              {step == 0 ? '업무 시간이 남았어요' : '봉고가 완료되었습니다.'}
+            </Text>
+          </SemiCircleProgress>
         </View>
-        <View style={calcPage.divider}></View>
+
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <TouchableOpacity style={[step == 1 ? calcPage.nextBtnActive : step == 0 ? calcPage.nextBtn : calcPage.doneBtn]}
+          onPress={() => step == 1 ? setStep(2) : null}>
+            <Text style={[step > 1 ? calcPage.nextBtnLabelActive : calcPage.nextBtnLabel]}>{step > 1 ? "정산 완료" : "정산 받기"}</Text>
+          </TouchableOpacity>
+        </View>
+
+        <Text style={[calcPage.text, {color:colors.blue, marginTop:30, fontSize:14}]}>
+          상세 내용
+        </Text>
+        <Text style={[calcPage.text, {marginTop:20, fontSize:16, fontWeight:'bold'}]}>
+          오늘 10시간 강남구 전기 관련 업무자
+        </Text>
+        <View>
+          <View style={[calcPage.seperation, {alignItems:'flex-start', paddingLeft:0, marginTop:25}]}>
+            <Image style={calcPage.smallImg} source={ClockImg}/>
+            <Text style={[calcPage.text, {textAlign:'left', paddingLeft:10, paddingTop:5}]}>시간</Text>
+            <Text style={[calcPage.text, {paddingTop:5, textAlign:'left'}]}>10:00 - 20:00</Text>
+          </View>
+          <View style={calcPage.divider}></View>
+          <View style={[calcPage.seperation, {alignItems:'flex-start', paddingLeft:0, marginTop:15}]}>
+            <Image style={calcPage.smallImg} source={MoneyImg}/>
+            <Text style={[calcPage.text, {textAlign:'left', paddingLeft:10, paddingTop:5}]}>일급</Text>
+            <Text style={[calcPage.text, {paddingTop:5, textAlign:'left'}]}>100,000원</Text>
+          </View>
+          <View style={calcPage.divider}></View>
+        </View>
       </View>
     </ScrollView>
+    <View style ={[menuStyle.menu, {paddingTop:20}]}>
+      <View>
+          <TouchableOpacity 
+              onPress={() => null}>
+              <Feather
+                  style ={{textAlign:'center'}}
+                  name ="dollar-sign"
+                  color ="blue"
+                  size={25}/>
+              <Text style={menuStyle.menuTextChoiced}>정산</Text>
+          </TouchableOpacity>
+      </View>
+      <View>
+          <TouchableOpacity 
+              onPress={() => navigation.navigate('main')}>
+              <Feather
+                  style ={{textAlign:'center'}}
+                  name ="home"
+                  color ="black"
+                  size={25}/>
+              <Text style={menuStyle.menuText}>메인</Text>
+          </TouchableOpacity>
+      </View>
+      <View>
+          <TouchableOpacity 
+              onPress={() => navigation.navigate('private')}>
+          <Feather
+              style ={{textAlign:'center'}}
+              name ="user"
+              color ="black"
+              size={25}/>
+          <Text style={menuStyle.menuText}>내 프로필</Text>
+          </TouchableOpacity>
+      </View>
+    </View>
+  </View> 
   );
 }
+
+const menuBox = {
+  flex: 1,
+  width: '100%',
+  height: 84,
+  backgroundColor: colors.flatBlueSkyLight,
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  shadowColor: "rgba(0, 0, 0, 0.24)",
+  shadowOffset: {
+    width: 0,
+    height: 8
+  },
+  shadowRadius: 20,
+  shadowOpacity: 1,
+};
+
+const menuBoxText = {
+  width: 60,
+  height: 20,
+  fontFamily: basicFont,
+  fontSize: 12,
+  fontWeight: "normal",
+  fontStyle: "normal",
+  lineHeight: 19.2,
+  letterSpacing: 0,
+  textAlign: "center",
+  color: colors.black
+};
+
+
+const menuBoxTextChoiced = {
+  width: 60,
+  height: 20,
+  fontFamily: basicFont,
+  fontSize: 12,
+  fontWeight: "normal",
+  fontStyle: "normal",
+  lineHeight: 19.2,
+  letterSpacing: 0,
+  textAlign: "center",
+  color: colors.blue
+};
+
+const menuStyle = StyleSheet.create({
+    menu: menuBox,
+    menuText: menuBoxText,
+    menuTextChoiced : menuBoxTextChoiced,
+});
 
 export default calculateScreen

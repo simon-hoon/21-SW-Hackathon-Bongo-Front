@@ -11,8 +11,6 @@ export default class SemiCircleProgress extends React.PureComponent {
         circleRadius: PropTypes.number,
         progressWidth: PropTypes.number,
         percentage: PropTypes.number,
-        exteriorCircleStyle: PropTypes.style,
-        interiorCircleStyle: PropTypes.style,
         animationSpeed: PropTypes.number,
         initialPercentage: PropTypes.number,
         minValue: PropTypes.number,
@@ -117,11 +115,11 @@ export default class SemiCircleProgress extends React.PureComponent {
         const styles = this.getStyles()
 
         return (
-            <View style={[defaultStyles.exteriorCircle, styles.exteriorCircle, this.props.exteriorCircleStyle]}>
+            <View style={[defaultStyles.exteriorCircle, styles.exteriorCircle]}>
                 <View style={[defaultStyles.rotatingCircleWrap, styles.rotatingCircleWrap]}>
                     <Animated.View style={[defaultStyles.rotatingCircle, styles.rotatingCircle]} />
                 </View>
-                <View style={[defaultStyles.interiorCircle, styles.interiorCircle, this.props.interiorCircleStyle]}>
+                <View style={[defaultStyles.interiorCircle, styles.interiorCircle]}>
                     {this.props.children}
                 </View>
             </View>

@@ -531,7 +531,7 @@ function MainScreen({navigation}) {
         <View style ={signUpPage.menu}>
             <View style ={{marginTop:20}}>
                 <TouchableOpacity 
-                    onPress={() => navigation.navigate('private')}>
+                    onPress={() => navigation.navigate('calculate')}>
                     <Feather
                         style ={{textAlign:'center'}}
                         name ="dollar-sign"
