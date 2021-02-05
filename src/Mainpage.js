@@ -141,6 +141,7 @@ const iconStrokeClock1 = {
 const layerClock1 = {
     width: 31,
     height: 20,
+    marginTop: 1,
     //fontFamily: "NotoSansCJKkr",
     fontSize: 12.6,
     fontWeight: "normal",
@@ -158,6 +159,7 @@ const iconStrokeStar1 = {
 const layerStar1 = {
     width: 70,
     height: 20,
+    marginTop: 1,
     //fontFamily: "NotoSansCJKkr",
     fontSize: 12.6,
     fontWeight: "normal",
@@ -275,7 +277,9 @@ const signUpPage = StyleSheet.create({
         borderRadius: 50 / 2,
         backgroundColor: colors.blue,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginTop: -38,
+        elevation: 3
     },
     whiteCircle: {
         width: 50,
@@ -283,7 +287,9 @@ const signUpPage = StyleSheet.create({
         borderRadius: 50 / 2,
         backgroundColor: colors.white,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginTop: -38,
+        elevation: 3
     },
     centre: {
         justifyContent: "center",
@@ -416,9 +422,27 @@ function MainScreen({navigation}) {
                 <Text>Title</Text>
                 <View style ={signUpPage.seperation}>
                     <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>9시간</Text>
+                    <Text style={signUpPage.time}>5시간</Text>
                     <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>111,310</Text>                    
+                    <Text style={signUpPage.money}>64,830</Text>                    
+                </View>                
+            </View>
+
+            <View style={signUpPage.mold}>
+                <Image style={signUpPage.style}
+                source={require("../src/images/photo.jpg")}
+                />
+                <View style={signUpPage.centre}>
+                    <View style={signUpPage.whiteCircle}>
+                        <Image style={signUpPage.logoContainer} source={logoClose}/>
+                    </View>
+                </View>
+                <Text>Title</Text>
+                <View style ={signUpPage.seperation}>
+                    <Image style={signUpPage.logoContainer} source={logoClock} />
+                    <Text style={signUpPage.time}>7시간</Text>
+                    <Image style={signUpPage.logoContainer} source={logoStar} />
+                    <Text style={signUpPage.money}>85,710</Text>                    
                 </View>                
             </View>
 
@@ -434,9 +458,9 @@ function MainScreen({navigation}) {
                 <Text>Title</Text>
                 <View style ={signUpPage.seperation}>
                     <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>9시간</Text>
+                    <Text style={signUpPage.time}>12시간</Text>
                     <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>111,310</Text>                    
+                    <Text style={signUpPage.money}>155,270</Text>                    
                 </View>                
             </View>
 
@@ -445,34 +469,16 @@ function MainScreen({navigation}) {
                 source={require("../src/images/photo.jpg")}
                 />
                 <View style={signUpPage.centre}>
-                    <View style={signUpPage.blueCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                    <View style={signUpPage.whiteCircle}>
+                        <Image style={signUpPage.logoContainer} source={logoClose}/>
                     </View>
                 </View>
                 <Text>Title</Text>
                 <View style ={signUpPage.seperation}>
                     <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>9시간</Text>
+                    <Text style={signUpPage.time}>3시간</Text>
                     <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>111,310</Text>                    
-                </View>                
-            </View>
-
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/photo.jpg")}
-                />
-                <View style={signUpPage.centre}>
-                    <View style={signUpPage.blueCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoCheck}/>
-                    </View>
-                </View>
-                <Text>Title</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>9시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>111,310</Text>                    
+                    <Text style={signUpPage.money}>44,190</Text>                    
                 </View>                
             </View>
         </ScrollView>    
