@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {basicFont} from '../App';
 
+
 import logoErect from './images/iconStrockErectWhite.png';
 import logoElect from './images/iconStrockElectBlue.png';
 import logoDelivery from './images/iconStrockDeliveryBlue.png';
@@ -576,7 +577,7 @@ const layoutProfile = {
 
 //
 
-const mainPage = StyleSheet.create({
+const signUpPage = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.white,
@@ -586,19 +587,23 @@ const mainPage = StyleSheet.create({
         justifyContent: 'flex-end',
         paddingBottom: 17.4
     },
+    seperation: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
     title: titleTitle,
 });
 
 
 function MainScreen({navigation}) {
   return (
-    <View style={mainPage.container}>
-        <View style ={mainPage.header}>
-            <Text style ={mainPage.title}>오늘의 BONGO를{"\n"}찾아보세요!</Text>
+    <View style={signUpPage.container}>
+        <View style ={signUpPage.header}>
+            <Text style ={signUpPage.title}>오늘의 BONGO를{"\n"}찾아보세요!</Text>
         </View>
-        
+
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Button
+            <Button   
             title="뒤로(디버깅용)"
             onPress={() => navigation.push('home')}/>
         </View>
