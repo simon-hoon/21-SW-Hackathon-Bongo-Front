@@ -8,6 +8,7 @@ import signUpScreen from './src/signUp';
 import profileScreen from './src/setProfile';
 import interestScreen from './src/setInterest';
 import MainScreen from './src/Mainpage';
+import calculateScreen from './src/calculate';
 
 // 업체 회원 페이지
 import recruitScreen from './src/business/Recruit.js';
@@ -98,7 +99,7 @@ function HomeScreen({navigation}) {
         <Text style={styles.signUpLayer}>회원가입</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.login}
-      onPress={() => navigation.navigate('main')}>
+      onPress={() => navigation.navigate('calculate')}>
         <Text style={styles.loginLayer}>로그인</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
@@ -136,6 +137,10 @@ export default function App() {
           options={{
             headerTitle:"모집하기",
             headerBackTitle:" ",
+          }}/>
+          <Stack.Screen name="calculate" component={calculateScreen}
+          options={{
+            headerShown:false
           }}/>
       </Stack.Navigator>
       </NavigationContainer>
