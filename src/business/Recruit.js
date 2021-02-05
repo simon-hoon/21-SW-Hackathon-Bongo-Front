@@ -480,7 +480,7 @@ function recruitScreen({navigation}){
 
 
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <TouchableOpacity style={recruitPage.nextBtn}
+        <TouchableOpacity style={recruitPage.nextBtnActive}
         onPress={() => navigation.navigate('setInterest')}>
           <Text style={recruitPage.nextBtnLabel}>모집하기</Text>
         </TouchableOpacity>
