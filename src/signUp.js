@@ -68,13 +68,14 @@ const rectangleMail = {
 };
 
 const rectanglePwd = {
-  width: 331,
+  width: '100%',
   height: 44,
   opacity: 0.7,
   borderRadius: 3.3,
   borderStyle: "solid",
   borderWidth: 1.1,
-  borderColor: "#cecece"
+  borderColor: "#cecece",
+  paddingLeft: 10
 };
 ////////////////////////////////////
 
@@ -104,13 +105,14 @@ const choiceLayer = {
 
 
 const layerMail= {
-  width: 243,
+  width: 275,
   height: 44,
   opacity: 0.7,
   borderRadius: 3.3,
   borderStyle: "solid",
   borderWidth: 1.1,
-  borderColor: "#cecece"
+  borderColor: "#cecece",
+  paddingLeft: 10
 };
 
 const layer= {
@@ -136,13 +138,14 @@ const layerBirth= {
 
 const layerSex= {
     width: 343,
-        height: 22.1,
-        fontFamily: "NotoSansCJKkr",
-        fontSize: 14.4,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        letterSpacing: 0,
-        color: "#000000"
+    height: 22.1,
+    fontFamily: "NotoSansCJKkr",
+    fontSize: 14.4,
+    fontWeight: "normal",
+    fontStyle: "normal",
+    letterSpacing: 0,
+    color: "#000000",
+    marginBottom:20
 };
 
 const layerAddr= {
@@ -188,7 +191,9 @@ const signUpPage = StyleSheet.create({
     fontStyle: "normal",
     letterSpacing: 0,
     paddingBottom: -20,
-    color: "#000000"
+    color: "#000000",
+    marginTop: 14,
+    marginBottom: 5
   },
   seperation: {
     flexDirection: 'row',
@@ -223,7 +228,24 @@ const signUpPage = StyleSheet.create({
     textAlign: "center",
     color: colors.white,
     paddingTop: 15
-  }
+  },
+  checkBtn: {
+    width: 74,
+    height: 44,
+    opacity: 0.7,
+    borderRadius: 3.3,
+    backgroundColor: "#b0b0b0"
+  },
+  checkBtnLabel: {
+    fontFamily: basicFont,
+    fontSize: 15,
+    fontWeight: "bold",
+    fontStyle: "normal",
+    letterSpacing: 0.44,
+    textAlign: "center",
+    color: colors.white,
+    paddingTop: 15
+  },
 });
 
 function signUpScreen({navigation}){
@@ -251,10 +273,17 @@ function signUpScreen({navigation}){
         </TouchableOpacity>
         </View>
       <Text style ={signUpPage.text}>이메일</Text>
-          <TextInput 
+          <View style={signUpPage.seperation}>
+            <TextInput 
               placeholder = "정확하게 입력해주세요"
               style ={signUpPage.mail} 
               autoCapitalize = "none"/>
+            <TouchableOpacity 
+              style={signUpPage.checkBtn}
+              onPress={() => setGender('F')}>
+                <Text style={signUpPage.checkBtnLabel}>중복확인</Text>
+            </TouchableOpacity>
+          </View>
           <Text style ={signUpPage.text}>비밀번호</Text>
           <TextInput 
               placeholder = "6~15자의 영문, 숫자조합으로 입력해주세요."
@@ -262,14 +291,14 @@ function signUpScreen({navigation}){
               autoCapitalize = "none"/>
          <Text style ={signUpPage.text}>비밀번호 확인</Text>
           <TextInput
-              style ={signUpPage.layer} 
+              style ={signUpPage.pwdBox} 
               autoCapitalize = "none"/>
          <Text style ={signUpPage.text}>이름</Text>
           <TextInput
-              style ={signUpPage.layer} 
+              style ={signUpPage.pwdBox} 
               autoCapitalize = "none"/>
       <Text style ={signUpPage.text}>생년월일</Text>
-        <View style ={signUpPage.Sex}>
+          <View style ={signUpPage.Sex}>
               <Text style ={signUpPage.text}>성별</Text>
           </View>
           <View style ={signUpPage.seperation}>
@@ -313,15 +342,29 @@ function signUpScreen({navigation}){
         </TouchableOpacity>
         </View>
       <Text style ={signUpPage.text}>회사이름</Text>
+        <View style={signUpPage.seperation}>
           <TextInput 
               placeholder = "정확하게 입력해주세요"
               style ={signUpPage.mail} 
               autoCapitalize = "none"/>
+          <TouchableOpacity 
+              style={signUpPage.checkBtn}
+              onPress={() => setGender('F')}>
+                <Text style={signUpPage.checkBtnLabel}>중복확인</Text>
+            </TouchableOpacity>
+        </View>
       <Text style ={signUpPage.text}>이메일</Text>
-          <TextInput 
+          <View style={signUpPage.seperation}>
+            <TextInput 
               placeholder = "정확하게 입력해주세요"
               style ={signUpPage.mail} 
               autoCapitalize = "none"/>
+            <TouchableOpacity 
+              style={signUpPage.checkBtn}
+              onPress={() => setGender('F')}>
+                <Text style={signUpPage.checkBtnLabel}>중복확인</Text>
+            </TouchableOpacity>
+          </View>
           <Text style ={signUpPage.text}>비밀번호</Text>
           <TextInput 
               placeholder = "6~15자의 영문, 숫자조합으로 입력해주세요."
@@ -329,11 +372,11 @@ function signUpScreen({navigation}){
               autoCapitalize = "none"/>
          <Text style ={signUpPage.text}>비밀번호 확인</Text>
           <TextInput
-              style ={signUpPage.layer} 
+              style ={signUpPage.pwdBox} 
               autoCapitalize = "none"/>
          <Text style ={signUpPage.text}>이름</Text>
           <TextInput
-              style ={signUpPage.layer} 
+              style ={signUpPage.pwdBox} 
               autoCapitalize = "none"/>
       <Text style ={signUpPage.text}>생년월일</Text>
         <View style ={signUpPage.Sex}>
