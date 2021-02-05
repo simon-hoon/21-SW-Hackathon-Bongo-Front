@@ -6,6 +6,7 @@ import Feather from 'react-native-vector-icons/Feather'
 import DropDownPicker from 'react-native-dropdown-picker';
 
 import SemiCircleProgressBar from "react-progressbar-semicircle";
+import SemiCircleProgress from './components/test';
 
 import ConstructImg from './images/const.png';
 import ConstructImgActive from './images/constBlue.png';
@@ -222,7 +223,10 @@ const calcPage = StyleSheet.create({
     borderRadius: 27.6,
     backgroundColor: colors.white,
     borderColor: colors.blue,
-    marginTop: 50
+    marginTop: 50,
+    borderRadius: 27.6,
+    borderStyle: "solid",
+    borderWidth: 1.7,
   },
   nextBtnLabel: {
     fontFamily: basicFont,
@@ -308,6 +312,33 @@ const calcPage = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 30
   },
+  progressPer: {
+    fontFamily: basicFont,
+    fontSize: 15,
+    fontWeight: "500",
+    fontStyle: "normal",
+    letterSpacing: 0,
+    textAlign: "center",
+    color: "#000000"
+  },
+  progressMsg: {
+    fontFamily: basicFont,
+    fontSize: 30,
+    fontWeight: "bold",
+    fontStyle: "normal",
+    letterSpacing: 0,
+    textAlign: "center",
+    color: colors.signatureBlue
+  },
+  progressDesc: {
+    fontFamily: basicFont,
+    fontSize: 15,
+    fontWeight: "normal",
+    fontStyle: "normal",
+    letterSpacing: 0,
+    textAlign: "center",
+    color: "#898989"
+  }
 });
 
 function calculateScreen({navigation}){
@@ -331,13 +362,25 @@ function calculateScreen({navigation}){
 
       <Text style={calcPage.text}>2021년 2월 6일</Text>
       <View style={calcPage.progressBox}>
-        <SemiCircleProgressBar percentage={step == 0 ? 33 : 100} showPercentValue strokeWidth={15} stroke="#0036d5"
-          style={calcPage.semiProgress} />
+        <SemiCircleProgress
+            percentage={step == 0 ? 35 : 100}
+            progressColor={colors.blue}
+        >
+          <Text style={calcPage.progressPer}>
+            {step == 0 ? '35' : '100'}%
+          </Text>
+          <Text style={calcPage.progressMsg}>
+            {step == 0 ? '2h 30m' : step == 1 ? '100,000원' : '115,000원'}
+          </Text>
+          <Text style={calcPage.progressDesc}>
+            {step == 0 ? '업무 시간이 남았어요' : '봉고가 완료되었습니다.'}
+          </Text>
+        </SemiCircleProgress>
       </View>
 
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <TouchableOpacity style={[step == 1 ? calcPage.nextBtnActive : step == 0 ? calcPage.nextBtn : calcPage.doneBtn]}
-        onPress={() => step == 1 ? navigation.navigate('main') : null}>
+        onPress={() => step == 1 ? setStep(2) : null}>
           <Text style={[step > 1 ? calcPage.nextBtnLabelActive : calcPage.nextBtnLabel]}>{step > 1 ? "정산 완료" : "정산 받기"}</Text>
         </TouchableOpacity>
       </View>
