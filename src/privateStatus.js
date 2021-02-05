@@ -86,7 +86,7 @@ const textContentInBox = {
   fontSize: 14,
   fontWeight: "normal",
   fontStyle: "normal",
-  paddingLeft: 0,
+  padding: 7,
   letterSpacing: 0,
   color: "#000000"
 };
@@ -269,7 +269,7 @@ function privateScreen({navigation}) {
         <View style = {{flexDirection: 'row', justifyContent:'space-between'}}>
           <Text style ={privateStyle.caption}>이런 평가를 받았어요</Text>
             <TouchableOpacity 
-                    onPress={() => navigation.navigate('main')}>
+                    onPress={() => navigation.navigate('complete')}>
                 <Image style ={{ alignItems:'flex-end', marginRight: 15}} source={arrowImg}/>
                 </TouchableOpacity>
         </View>
