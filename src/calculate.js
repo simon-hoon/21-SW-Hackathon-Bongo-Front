@@ -314,7 +314,7 @@ const calcPage = StyleSheet.create({
   },
   progressPer: {
     fontFamily: basicFont,
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "500",
     fontStyle: "normal",
     letterSpacing: 0,
@@ -323,7 +323,7 @@ const calcPage = StyleSheet.create({
   },
   progressMsg: {
     fontFamily: basicFont,
-    fontSize: 30,
+    fontSize: 32,
     fontWeight: "bold",
     fontStyle: "normal",
     letterSpacing: 0,
@@ -332,7 +332,7 @@ const calcPage = StyleSheet.create({
   },
   progressDesc: {
     fontFamily: basicFont,
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "normal",
     fontStyle: "normal",
     letterSpacing: 0,

@@ -24,7 +24,7 @@ export default class SemiCircleProgress extends React.PureComponent {
         progressShadowColor: 'silver',
         progressColor: 'steelblue',
         interiorCircleColor: 'white',
-        circleRadius: 100,
+        circleRadius: 150,
         progressWidth: 10,
         animationSpeed: 2,
         initialPercentage: 0,
