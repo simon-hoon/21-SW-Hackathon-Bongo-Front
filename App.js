@@ -100,7 +100,7 @@ function HomeScreen({navigation}) {
         <Text style={styles.signUpLayer}>회원가입</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.login}
-      onPress={() => navigation.navigate('calculate')}>
+      onPress={() => navigation.navigate('main')}>
         <Text style={styles.loginLayer}>로그인</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
