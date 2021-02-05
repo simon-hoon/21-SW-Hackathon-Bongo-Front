@@ -297,8 +297,8 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2
     },
-    shadowOpacity: 1,
-    shadowRadius: 7,
+    shadowOpacity: 0.35,
+    shadowRadius: 3.5,
     elevation: 5
   },
   openButton: {
@@ -345,8 +345,8 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2
     },
-    shadowOpacity: 1,
-    shadowRadius: 7,
+    shadowOpacity: 0.35,
+    shadowRadius: 3.5,
     alignItems:'center'
   }
 });
