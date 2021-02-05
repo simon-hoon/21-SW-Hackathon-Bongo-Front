@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import 'react-native-gesture-handler';
 import {basicFont} from '../App';
@@ -227,66 +227,139 @@ const signUpPage = StyleSheet.create({
 });
 
 function signUpScreen({navigation}){
-  return (
-    <ScrollView style={signUpPage.container}>
-        <View style ={signUpPage.header}>
-            <Text style ={signUpPage.title}>안녕하세요.{"\n"}BONGO입니다!</Text>
+  const [user_type, setType] = useState('N');
+  const [user_gender, setGender] = useState('F');
+
+  if (user_type == "N") {
+    // 일반 회원
+    return (
+      <ScrollView style={signUpPage.container}>
+          <View style ={signUpPage.header}>
+              <Text style ={signUpPage.title}>안녕하세요.{"\n"}BONGO입니다!</Text>
+          </View>
+              <Text style ={signUpPage.text}>사용자를 알려주세요</Text>
+          <View style ={signUpPage.seperation}>
+          <TouchableOpacity 
+        style={signUpPage.ClickedOn}
+        onPress={() => setType('N')}>
+          <Text style={signUpPage.choice}>일반 사용자</Text>
+        </TouchableOpacity>
+                <TouchableOpacity 
+        style={signUpPage.ClickedOff}
+        onPress={() => setType('B')}>
+          <Text style={signUpPage.notChoice}>업체 사용자</Text>
+        </TouchableOpacity>
         </View>
-            <Text style ={signUpPage.text}>사용자를 알려주세요</Text>
-        <View style ={signUpPage.seperation}>
-        <TouchableOpacity 
-      style={signUpPage.ClickedOn}
-      onPress={() => Alert.alert('just clicked')}>
-        <Text style={signUpPage.choice}>일반 사용자</Text>
-      </TouchableOpacity>
-              <TouchableOpacity 
-      style={signUpPage.ClickedOff}
-      onPress={() => Alert.alert('just clicked')}>
-        <Text style={signUpPage.notChoice}>업체 사용자</Text>
-      </TouchableOpacity>
-      </View>
-    <Text style ={signUpPage.text}>이메일</Text>
-        <TextInput 
-            placeholder = "정확하게 입력해주세요"
-            style ={signUpPage.mail} 
-            autoCapitalize = "none"/>
-        <Text style ={signUpPage.text}>비밀번호</Text>
-        <TextInput 
-            placeholder = "6~15자의 영문, 숫자조합으로 입력해주세요."
-            style ={signUpPage.pwdBox} 
-            autoCapitalize = "none"/>
-       <Text style ={signUpPage.text}>비밀번호 확인</Text>
-        <TextInput
-            style ={signUpPage.layer} 
-            autoCapitalize = "none"/>
-       <Text style ={signUpPage.text}>이름</Text>
-        <TextInput
-            style ={signUpPage.layer} 
-            autoCapitalize = "none"/>
-<Text style ={signUpPage.text}>생년월일</Text>
-      <View style ={signUpPage.Sex}>
-            <Text style ={signUpPage.text}>성별</Text>
+      <Text style ={signUpPage.text}>이메일</Text>
+          <TextInput 
+              placeholder = "정확하게 입력해주세요"
+              style ={signUpPage.mail} 
+              autoCapitalize = "none"/>
+          <Text style ={signUpPage.text}>비밀번호</Text>
+          <TextInput 
+              placeholder = "6~15자의 영문, 숫자조합으로 입력해주세요."
+              style ={signUpPage.pwdBox} 
+              autoCapitalize = "none"/>
+         <Text style ={signUpPage.text}>비밀번호 확인</Text>
+          <TextInput
+              style ={signUpPage.layer} 
+              autoCapitalize = "none"/>
+         <Text style ={signUpPage.text}>이름</Text>
+          <TextInput
+              style ={signUpPage.layer} 
+              autoCapitalize = "none"/>
+      <Text style ={signUpPage.text}>생년월일</Text>
+        <View style ={signUpPage.Sex}>
+              <Text style ={signUpPage.text}>성별</Text>
+          </View>
+          <View style ={signUpPage.seperation}>
+          <TouchableOpacity 
+        style={[user_gender == "F" ? signUpPage.ClickedOn : signUpPage.ClickedOff]}
+        onPress={() => setGender('F')}>
+          <Text style={[user_gender == "F" ? signUpPage.choice : signUpPage.notChoice]}>여자</Text>
+        </TouchableOpacity>
+                <TouchableOpacity 
+        style={[user_gender == "M" ? signUpPage.ClickedOn : signUpPage.ClickedOff]}
+        onPress={() => setGender('M')}>
+          <Text style={[user_gender == "M" ? signUpPage.choice : signUpPage.notChoice]}>남자</Text>
+        </TouchableOpacity>
         </View>
-        <View style ={signUpPage.seperation}>
-        <TouchableOpacity 
-      style={signUpPage.ClickedOn}
-      onPress={() => Alert.alert('just clicked')}>
-        <Text style={signUpPage.choice}>여자</Text>
-      </TouchableOpacity>
-              <TouchableOpacity 
-      style={signUpPage.ClickedOff}
-      onPress={() => Alert.alert('just clicked')}>
-        <Text style={signUpPage.notChoice}>남자</Text>
-      </TouchableOpacity>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity style={signUpPage.nextBtn}
+        onPress={() => navigation.navigate('setProfile')}>
+          <Text style={signUpPage.nextBtnLabel}>가입하기</Text>
+        </TouchableOpacity>
       </View>
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <TouchableOpacity style={signUpPage.nextBtn}
-      onPress={() => navigation.navigate('setProfile')}>
-        <Text style={signUpPage.nextBtnLabel}>가입하기</Text>
-      </TouchableOpacity>
-    </View>
-    </ScrollView>
-  );
+      </ScrollView>
+    );
+  } else {
+    // 기업 회원
+    return (
+      <ScrollView style={signUpPage.container}>
+          <View style ={signUpPage.header}>
+              <Text style ={signUpPage.title}>안녕하세요.{"\n"}BONGO입니다!</Text>
+          </View>
+              <Text style ={signUpPage.text}>사용자를 알려주세요</Text>
+          <View style ={signUpPage.seperation}>
+          <TouchableOpacity 
+        style={signUpPage.ClickedOff}
+        onPress={() => setType('N')}>
+          <Text style={signUpPage.notChoice}>일반 사용자</Text>
+        </TouchableOpacity>
+                <TouchableOpacity 
+        style={signUpPage.ClickedOn}
+        onPress={() => setType('B')}>
+          <Text style={signUpPage.choice}>업체 사용자</Text>
+        </TouchableOpacity>
+        </View>
+      <Text style ={signUpPage.text}>회사이름</Text>
+          <TextInput 
+              placeholder = "정확하게 입력해주세요"
+              style ={signUpPage.mail} 
+              autoCapitalize = "none"/>
+      <Text style ={signUpPage.text}>이메일</Text>
+          <TextInput 
+              placeholder = "정확하게 입력해주세요"
+              style ={signUpPage.mail} 
+              autoCapitalize = "none"/>
+          <Text style ={signUpPage.text}>비밀번호</Text>
+          <TextInput 
+              placeholder = "6~15자의 영문, 숫자조합으로 입력해주세요."
+              style ={signUpPage.pwdBox} 
+              autoCapitalize = "none"/>
+         <Text style ={signUpPage.text}>비밀번호 확인</Text>
+          <TextInput
+              style ={signUpPage.layer} 
+              autoCapitalize = "none"/>
+         <Text style ={signUpPage.text}>이름</Text>
+          <TextInput
+              style ={signUpPage.layer} 
+              autoCapitalize = "none"/>
+      <Text style ={signUpPage.text}>생년월일</Text>
+        <View style ={signUpPage.Sex}>
+              <Text style ={signUpPage.text}>성별</Text>
+          </View>
+          <View style ={signUpPage.seperation}>
+          <TouchableOpacity 
+        style={[user_gender == "F" ? signUpPage.ClickedOn : signUpPage.ClickedOff]}
+        onPress={() => setGender('F')}>
+          <Text style={[user_gender == "F" ? signUpPage.choice : signUpPage.notChoice]}>여자</Text>
+        </TouchableOpacity>
+                <TouchableOpacity 
+        style={[user_gender == "M" ? signUpPage.ClickedOn : signUpPage.ClickedOff]}
+        onPress={() => setGender('M')}>
+          <Text style={[user_gender == "M" ? signUpPage.choice : signUpPage.notChoice]}>남자</Text>
+        </TouchableOpacity>
+        </View>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity style={signUpPage.nextBtn}
+        onPress={() => navigation.navigate('setProfile')}>
+          <Text style={signUpPage.nextBtnLabel}>가입하기</Text>
+        </TouchableOpacity>
+      </View>
+      </ScrollView>
+    );
+  }
 }
 
 export default signUpScreen
