@@ -1,15 +1,15 @@
 import React, {useState} from "react";
-import { StyleSheet, Text, View, ScrollView, Button, Alert, TouchableOpacity, TouchableHighlight, TextInput, Image, Modal } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Button, Alert, Image, TouchableOpacity, TextInput } from "react-native";
 import 'react-native-gesture-handler';
-import {basicFont} from '../App';
+import {basicFont} from '../../App';
 import Feather from 'react-native-vector-icons/Feather'
 import DropDownPicker from 'react-native-dropdown-picker';
 
-import ConstructImg from './images/const.png';
-import ConstructImgActive from './images/constBlue.png';
-import ElectricImg from './images/elec.png';
-import DeliveryImg from './images/delivery.png';
-import SimpleImg from './images/keyword.png';
+import logo from '../images/logoWhite.png';
+import constructImg from '../images/iconStrockErectWhite.png';
+import electricImg from '../images/iconStrockElectBlue.png';
+import deliveryImg from '../images/iconStrockDeliveryBlue.png';
+import simpleImg from '../images/iconStrockSimpleBlue.png';
 
 const colors = {
   blue: "#0036d5",
@@ -178,7 +178,7 @@ const layerAddrDetail= {
 
 ////////////////////////////////////////////////////////
 
-const signUpPage = StyleSheet.create({
+const recruitPage = StyleSheet.create({
   container: {
     flex: 1,
     padding: 22,
@@ -197,7 +197,8 @@ const signUpPage = StyleSheet.create({
     fontStyle: "normal",
     letterSpacing: 0,
     paddingBottom: -20,
-    color: "#000000"
+    color: "#000000",
+    marginBottom: 10
   },
   title: titleTitle,
   nextBtn: {
@@ -227,6 +228,11 @@ const signUpPage = StyleSheet.create({
   seperation: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginBottom: 10
+  },
+  seperation_menus: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     width: '100%',
     alignItems: 'center',
     textAlign: 'center',
@@ -241,8 +247,7 @@ const signUpPage = StyleSheet.create({
     borderRadius: 10.7,
     borderStyle: "solid",
     borderWidth: 2.1,
-    borderColor: '#cecece',
-    alignItems: 'center'
+    borderColor: '#f3f3f3'
   },
   interestBoxActive: {
     width: 144,
@@ -251,82 +256,117 @@ const signUpPage = StyleSheet.create({
     borderRadius: 10.7,
     borderStyle: "solid",
     borderWidth: 2.1,
-    borderColor: colors.blue,
-    alignItems: 'center'
+    borderColor: colors.blue
   },
   interestLabel: {
-    color: "#9b9b9b",
-    textAlign: 'center'
-  },
-  interestLabelActive: {
     color: colors.blue,
-    textAlign: 'center'
+    textAlign: 'center',
+    marginTop: 5
   },
-  interestImg: {
-    width: 90,
-    height: 90,
-    alignItems: 'center',
+  inputBox: {
+    width: '100%',
+    height: 44,
+    opacity: 0.7,
+    borderRadius: 3.3,
+    borderStyle: "solid",
+    borderWidth: 1.1,
+    borderColor: "#cecece",
+    paddingLeft: 10,
+    marginBottom: 10
+  },
+  NinputBox: {
+    width: '100%',
+    height: 140,
+    opacity: 0.7,
+    borderRadius: 3.3,
+    borderStyle: "solid",
+    borderWidth: 1.1,
+    borderColor: "#cecece",
+    paddingLeft: 10,
+    marginBottom: 10
+  },
+  SinputBox: {
+    width: 275,
+    height: 44,
+    opacity: 0.7,
+    borderRadius: 3.3,
+    borderStyle: "solid",
+    borderWidth: 1.1,
+    borderColor: "#cecece",
+    paddingLeft: 10
+  },
+  logoContainer:{
+    width: 35,
+    height: 35,
     marginTop: 10
   },
-  centeredView: {
-    alignItems: 'center'
-  }
-});
-
-const styles = StyleSheet.create({
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
+  workBtn:{
+    width: 56,
+    height: 56,
+    backgroundColor: "#ffffff",
+    borderRadius: 28,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5
+    elevation: 5,
+    alignItems: 'center'
   },
-  openButton: {
-    backgroundColor: "#F194FF",
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2
+  workBtnActive:{
+    width: 56,
+    height: 56,
+    backgroundColor: "#0046d5",
+    borderRadius: 28,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: 'center'
   },
-  textStyle: {
-    color: "white",
+  checkBtn: {
+    width: 74,
+    height: 44,
+    opacity: 0.7,
+    borderRadius: 3.3,
+    backgroundColor: "#b0b0b0",
+    marginLeft: 10
+  },
+  checkBtnLabel: {
+    fontFamily: basicFont,
+    fontSize: 15,
     fontWeight: "bold",
-    textAlign: "center"
+    fontStyle: "normal",
+    letterSpacing: 0.44,
+    textAlign: "center",
+    color: colors.white,
+    paddingTop: 15
   },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center"
+  left: {
+    alignItems: 'flex-start'
   }
 });
 
-function interestScreen({navigation}){
+function recruitScreen({navigation}){
   const [interests, setInterests] = useState([0,0,0,0]);
-  const [modalVisible, setModalVisible] = useState(false);
-
   var interestNames = ["건축", "전기", "배달", "단순작업"];
   var isDone = false;
+
+  var times = [{label:'시간', value: 'default'}];
+  for (var i = 0; i < 24; i++) {
+    times.push({label:i+'시', value: i});
+  }
 
   function toggleInterest(name) {
     var index = interestNames.indexOf(name);
 
     if (index == -1) {
-      return false;
-    } else if (index == 0) {
-      // Modal 띄우기
-      setModalVisible(true);
       return false;
     }
 
@@ -342,73 +382,111 @@ function interestScreen({navigation}){
   }
 
   return (
-    <ScrollView style={signUpPage.container}>
-      <InterestModal modalVisible = { modalVisible } setModalVisible={setModalVisible}/>
-      <View style ={signUpPage.header}>
-          <Text style ={signUpPage.title}>인증 분야를{"\n"}선택하세요.</Text>
-      </View>
-      <View>
-        <View style={signUpPage.seperation}>
-          <TouchableOpacity style={[interests[0] == 1 ? signUpPage.interestBoxActive : signUpPage.interestBox]}
-            onPress={() => toggleInterest('건축')}>
-            <Image style={signUpPage.interestImg} source={interests[0] == 1 ? ConstructImgActive : ConstructImg}/>
-            <Text style={[interests[0] == 1 ? signUpPage.interestLabelActive : signUpPage.interestLabel]}>건축</Text>
+    <ScrollView style={recruitPage.container}>
+      <View style={recruitPage.seperation_menus}>
+        <View>
+          <TouchableOpacity style={recruitPage.workBtnActive}>
+            <Image style={recruitPage.logoContainer} source={constructImg} />
           </TouchableOpacity>
-          <TouchableOpacity style={[interests[1] == 1 ? signUpPage.interestBoxActive : signUpPage.interestBox]}
-            onPress={() => toggleInterest('전기')}>
-            <Image style={signUpPage.interestImg} source={ElectricImg}/>
-            <Text style={signUpPage.interestLabel}>전기</Text>
-          </TouchableOpacity>
+          <Text style={recruitPage.interestLabel}>건설</Text>
         </View>
-        <View style={signUpPage.seperation}>
-          <TouchableOpacity style={[interests[2] == 1 ? signUpPage.interestBoxActive : signUpPage.interestBox]}
-            onPress={() => toggleInterest('배달')}>
-            <Image style={signUpPage.interestImg} source={DeliveryImg}/>
-            <Text style={signUpPage.interestLabel}>배달</Text>
+
+        <View>
+          <TouchableOpacity style={recruitPage.workBtn}>
+            <Image style={recruitPage.logoContainer} source={electricImg} />
           </TouchableOpacity>
-          <TouchableOpacity style={[interests[3] == 1 ? signUpPage.interestBoxActive : signUpPage.interestBox]}
-            onPress={() => toggleInterest('단순작업')}>
-            <Image style={signUpPage.interestImg} source={SimpleImg}/>
-            <Text style={signUpPage.interestLabel}>단순작업</Text>
+          <Text style={recruitPage.interestLabel}>전기</Text>
+        </View>
+
+        <View>
+          <TouchableOpacity style={recruitPage.workBtn}>
+            <Image style={recruitPage.logoContainer} source={deliveryImg} />
           </TouchableOpacity>
+          <Text style={recruitPage.interestLabel}>배달</Text>
+        </View>
+
+        <View>
+          <TouchableOpacity style={recruitPage.workBtn}>
+            <Image style={recruitPage.logoContainer} source={simpleImg} />
+          </TouchableOpacity>
+          <Text style={recruitPage.interestLabel}>단순작업</Text>
         </View>
       </View>
+
+      <Text style ={recruitPage.text}>제목</Text>
+      <TextInput
+        style ={recruitPage.inputBox} 
+        autoCapitalize = "none"/>
+
+      <Text style ={recruitPage.text}>시간</Text>
+      <View style={recruitPage.seperation}>
+        <DropDownPicker
+          items={[
+              {label: '은행', value: 'default', hidden:true},
+              {label: '농협', value: 'NH'},
+              {label: '국민', value: 'KB'},
+          ]}
+          defaultValue="default"
+          containerStyle={{height: 44, width: 100}}
+          style={{backgroundColor: '#ffffff', width: 100}}
+          itemStyle={{
+              justifyContent: 'flex-start'
+          }}
+          dropDownStyle={{backgroundColor: '#fafafa'}}
+        />
+        <DropDownPicker
+          items={times}
+          defaultValue="default"
+          containerStyle={{height: 44, width: 100}}
+          style={{backgroundColor: '#ffffff', width: 100}}
+          itemStyle={{
+              justifyContent: 'flex-start'
+          }}
+          dropDownStyle={{backgroundColor: '#fafafa'}}
+        />
+        <DropDownPicker
+          items={times}
+          defaultValue="default"
+          containerStyle={{height: 44, width: 100}}
+          style={{backgroundColor: '#ffffff', width: 100}}
+          itemStyle={{
+              justifyContent: 'flex-start'
+          }}
+          dropDownStyle={{backgroundColor: '#fafafa'}}
+        />
+      </View>
+
+      <Text style ={recruitPage.text}>일급</Text>
+      <TextInput
+        style ={recruitPage.inputBox} 
+        autoCapitalize = "none"/>
+
+      <Text style ={recruitPage.text}>예치금</Text>
+      <View style={[recruitPage.seperation, recruitPage.left]}>
+        <TextInput
+          style ={recruitPage.SinputBox} 
+          autoCapitalize = "none"/>
+        <TouchableOpacity 
+          style={recruitPage.checkBtn}>
+            <Text style={recruitPage.checkBtnLabel}>자동충전</Text>
+        </TouchableOpacity>
+      </View>
+
+      <Text style ={recruitPage.text}>소개</Text>
+      <TextInput
+        style ={recruitPage.NinputBox} 
+        autoCapitalize = "none"
+        multiline/>
+
+
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <TouchableOpacity style={[isDone ? signUpPage.nextBtnActive : signUpPage.nextBtn]}
-        onPress={() => isDone ? navigation.navigate('main') : null}>
-          <Text style={signUpPage.nextBtnLabel}>가입완료</Text>
+        <TouchableOpacity style={recruitPage.nextBtnActive}
+        onPress={() => navigation.navigate('setInterest')}>
+          <Text style={recruitPage.nextBtnLabel}>모집하기</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
   );
 }
 
-function InterestModal(props) {
-  return (
-    <Modal
-          animationType="slide"
-          transparent={true}
-          isVisible={props.modalVisible}
-          onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-          }}
-        >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Hello World!</Text>
-
-              <TouchableHighlight
-                style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-                onPress={() => {
-                  props.setModalVisible(!props.modalVisible);
-                }}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </TouchableHighlight>
-            </View>
-          </View>
-        </Modal>
-  );
-}
-
-export default interestScreen
+export default recruitScreen

@@ -1,9 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView, Button, Alert, TouchableOpacity, TextInput } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Button, Alert, Image, TouchableOpacity, TextInput } from "react-native";
 import 'react-native-gesture-handler';
 import {basicFont} from '../App';
 import Feather from 'react-native-vector-icons/Feather'
 import DropDownPicker from 'react-native-dropdown-picker';
+
+import CameraImg from './images/editCamera.png';
+import GalleryImg from './images/editGallery.png';
 
 const colors = {
   blue: "#0036d5",
@@ -69,7 +72,7 @@ const rectangleMail = {
 };
 
 const rectanglePwd = {
-  width: 327,
+  width: '100%',
   height: 283,
   opacity: 0.7,
   borderRadius: 3.3,
@@ -107,7 +110,7 @@ const choiceLayer = {
 
 
 const layerMail= {
-  width: 227,
+  width: 255,
   height: 44,
   opacity: 0.7,
   borderRadius: 3.3,
@@ -191,11 +194,17 @@ const signUpPage = StyleSheet.create({
     fontStyle: "normal",
     letterSpacing: 0,
     paddingBottom: -20,
-    color: "#000000"
+    color: "#000000",
+    marginTop: 15,
+    marginBottom: 5
   },
   seperation: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  left: {
+    alignItems: 'center',
+    justifyContent: 'flex-start'
   },
   title: titleTitle,
   notChoice: notChoiceLayer,
@@ -240,6 +249,39 @@ const signUpPage = StyleSheet.create({
     width: 300,
     marginLeft: 15
   },
+  photoBtn:{
+    width: 70,
+    height: 70,
+    backgroundColor: "#e3e3e3",
+    borderRadius: 35,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: 'center',
+    textAlign: 'center',
+    marginLeft: 25
+  },
+  photoBtnImg:{
+    width: 55,
+    height: 55,
+    marginTop: 10
+  },
+  photoBtnWrap:{
+    alignItems: 'center',
+    textAlign: 'center'
+  },
+  circleLabel:{
+    width: '100%',
+    textAlign: 'center',
+    marginTop: 10,
+    paddingLeft: 15,
+    color: colors.blue
+  }
 });
 
 
@@ -280,6 +322,24 @@ function profileScreen({navigation}){
             style ={signUpPage.pwdBox} 
             multiline
             autoCapitalize = "none"/>
+
+        <Text style ={signUpPage.text}>* 필수 보건증을 올려주세요</Text>
+        <View style={[signUpPage.seperation, signUpPage.left]}>
+          <View style={signUpPage.photoBtnWrap}>
+            <TouchableOpacity style={signUpPage.photoBtn}>
+              <Image style={signUpPage.photoBtnImg} source={CameraImg}/>
+            </TouchableOpacity>
+            <Text style={signUpPage.circleLabel}>직접 찍기</Text>
+          </View>
+          <View style={signUpPage.photoBtnWrap}>
+            <TouchableOpacity style={signUpPage.photoBtn}>
+              <Image style={signUpPage.photoBtnImg} source={GalleryImg}/>
+            </TouchableOpacity>
+            <Text style={signUpPage.circleLabel}>가져 오기</Text>
+          </View>
+        </View>
+
+
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <TouchableOpacity style={signUpPage.nextBtn}
         onPress={() => navigation.navigate('setInterest')}>
