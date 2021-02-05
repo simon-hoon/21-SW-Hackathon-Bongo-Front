@@ -9,6 +9,7 @@ import profileScreen from './src/setProfile';
 import interestScreen from './src/setInterest';
 import MainScreen from './src/Mainpage';
 import calculateScreen from './src/calculate';
+import privateScreen from './src/privateStatus';
 
 // 업체 회원 페이지
 import recruitScreen from './src/business/Recruit.js';
@@ -142,6 +143,10 @@ export default function App() {
           options={{
             headerShown:false
           }}/>
+          <Stack.Screen name="private" component={privateScreen}
+          options={{
+            headerShown:false
+          }} />
       </Stack.Navigator>
       </NavigationContainer>
   );

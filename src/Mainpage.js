@@ -2,9 +2,10 @@ import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Button, SafeAreaView, Alert ,Image, TouchableOpacity} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import {basicFont} from '../App';
+import { color } from 'react-native-reanimated';
+import { ScrollView } from 'react-native-gesture-handler';
+import Feather from 'react-native-vector-icons/Feather';
 
 import logoErect from './images/iconStrockErectWhite.png';
 import logoElect from './images/iconStrockElectBlue.png';
@@ -15,8 +16,6 @@ import logoStar from './images/iconStrockStar.png';
 import logoCheck from './images/iconStrockCheck.png';
 import logoClose from './images/iconStrockClose.png';
 
-import { color } from 'react-native-reanimated';
-import { ScrollView } from 'react-native-gesture-handler';
 
 const colors = {
   blue: "#0046d5",
@@ -30,15 +29,17 @@ const colors = {
 };
 
 const titleTitle= {
-    // fontFamily: "NotoSansCJKkr",
+    fontFamily: basicFont,
     fontSize: 32,
     fontWeight: "bold",
     fontStyle: "normal",
     lineHeight: 44.8,
     letterSpacing: 0,
     color: "#000000",
-    paddingTop: 10
+    paddingTop: 40,
+    paddingLeft: 21
 };
+
 
 const layerPrefer = {
     width: 354,
@@ -62,7 +63,7 @@ const iconStroke = {
 const layerErect = {
     width: 28,
     height: 22.1,
-    fontFamily: "NotoSansCJKkr",
+    //fontFamily: "NotoSansCJKkr",
     fontSize: 14.4,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -73,7 +74,7 @@ const layerErect = {
 const layerElect = {
     width: 28,
     height: 22.1,
-    fontFamily: "NotoSansCJKkr",
+    //fontFamily: "NotoSansCJKkr",
     fontSize: 14.4,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -84,7 +85,7 @@ const layerElect = {
 const layerDelivery = {
     width: 28,
     height: 22.1,
-    fontFamily: "NotoSansCJKkr",
+    //fontFamily: "NotoSansCJKkr",
     fontSize: 14.4,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -95,7 +96,7 @@ const layerDelivery = {
 const layerSimple = {
     width: 28,
     height: 22.1,
-    fontFamily: "NotoSansCJKkr",
+    //fontFamily: "NotoSansCJKkr",
     fontSize: 14.4,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -174,7 +175,7 @@ const layerStar1 = {
 const layerAuto = {
     width: 90,
     height: 28,
-    fontFamily: "NotoSansCJKkr",
+    fontFamily: basicFont,
     fontSize: 16,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -241,12 +242,54 @@ const layoutProfile = {
     color: colors.black
 }
 
+
+
+const menuBox = {
+  height: 84,
+  backgroundColor: colors.flatBlueSkyLight,
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  shadowColor: "rgba(0, 0, 0, 0.24)",
+  shadowOffset: {
+    width: 0,
+    height: 8
+  },
+  shadowRadius: 20,
+  shadowOpacity: 1
+};
+
+const menuBoxText = {
+  width: 60,
+  height: 20,
+  fontFamily: basicFont,
+  fontSize: 12,
+  fontWeight: "normal",
+  fontStyle: "normal",
+  lineHeight: 19.2,
+  letterSpacing: 0,
+  textAlign: "center",
+  color: colors.black
+};
+
+
+const menuBoxTextChoiced = {
+  width: 60,
+  height: 20,
+  fontFamily: basicFont,
+  fontSize: 12,
+  fontWeight: "normal",
+  fontStyle: "normal",
+  lineHeight: 19.2,
+  letterSpacing: 0,
+  textAlign: "center",
+  color: colors.blue
+};
+
 //
 
 const signUpPage = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 22,
         backgroundColor: colors.white,
     },
     header: {
@@ -304,7 +347,10 @@ const signUpPage = StyleSheet.create({
     clock: iconStrokeClock1,
     time: layerClock1,
     star: iconStrokeStar1,
-    money: layerStar1
+    money: layerStar1,
+    menu: menuBox,
+    menuText: menuBoxText,
+    menuTextChoiced : menuBoxTextChoiced,
 });
 
 
@@ -481,7 +527,42 @@ function MainScreen({navigation}) {
                     <Text style={signUpPage.money}>44,190</Text>                    
                 </View>                
             </View>
-        </ScrollView>    
+        </ScrollView>
+        <View style ={signUpPage.menu}>
+            <View style ={{marginTop:20}}>
+                <TouchableOpacity 
+                    onPress={() => navigation.navigate('private')}>
+                    <Feather
+                        style ={{textAlign:'center'}}
+                        name ="dollar-sign"
+                        color ="black"
+                        size={25}/>
+                    <Text style={signUpPage.menuText}>정산</Text>
+                </TouchableOpacity>
+            </View>
+            <View style ={{marginTop:20}}>
+                <TouchableOpacity 
+                    onPress={() => {}}>
+                    <Feather
+                        style ={{textAlign:'center'}}
+                        name ="home"
+                        color ="blue"
+                        size={25}/>
+                    <Text style={signUpPage.menuTextChoiced}>메인</Text>
+                </TouchableOpacity>
+            </View>
+            <View style ={{marginTop:20}}>
+                <TouchableOpacity 
+                    onPress={() => navigation.navigate('private')}>
+                <Feather
+                    style ={{textAlign:'center'}}
+                    name ="user"
+                    color ="black"
+                    size={25}/>
+                <Text style={signUpPage.menuText}>내 프로필</Text>
+                </TouchableOpacity>
+            </View>
+        </View>   
     </View>
 
   );
