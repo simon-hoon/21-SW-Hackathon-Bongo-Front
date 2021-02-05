@@ -596,7 +596,8 @@ const signUpPage = StyleSheet.create({
     style: {
         resizeMode: "contain",
         height: 150,
-        width: 150
+        width: 150,
+        margin: 5
     },
     title: titleTitle,
     prefer: layerPrefer,

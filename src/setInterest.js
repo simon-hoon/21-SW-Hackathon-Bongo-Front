@@ -1,9 +1,15 @@
 import React, {useState} from "react";
-import { StyleSheet, Text, View, ScrollView, Button, Alert, TouchableOpacity, TextInput } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Button, Alert, TouchableOpacity, TextInput, Image } from "react-native";
 import 'react-native-gesture-handler';
 import {basicFont} from '../App';
 import Feather from 'react-native-vector-icons/Feather'
 import DropDownPicker from 'react-native-dropdown-picker';
+
+import ConstructImg from './images/const.png';
+import ConstructImgActive from './images/constBlue.png';
+import ElectricImg from './images/elec.png';
+import DeliveryImg from './images/delivery.png';
+import SimpleImg from './images/keyword.png';
 
 const colors = {
   blue: "#0036d5",
@@ -235,7 +241,8 @@ const signUpPage = StyleSheet.create({
     borderRadius: 10.7,
     borderStyle: "solid",
     borderWidth: 2.1,
-    borderColor: '#f3f3f3'
+    borderColor: '#cecece',
+    alignItems: 'center'
   },
   interestBoxActive: {
     width: 144,
@@ -244,12 +251,23 @@ const signUpPage = StyleSheet.create({
     borderRadius: 10.7,
     borderStyle: "solid",
     borderWidth: 2.1,
-    borderColor: colors.blue
+    borderColor: colors.blue,
+    alignItems: 'center'
   },
   interestLabel: {
+    color: "#9b9b9b",
+    textAlign: 'center'
+  },
+  interestLabelActive: {
     color: colors.blue,
     textAlign: 'center'
   },
+  interestImg: {
+    width: 90,
+    height: 90,
+    alignItems: 'center',
+    marginTop: 10
+  }
 });
 
 function interestScreen({navigation}){
@@ -278,26 +296,30 @@ function interestScreen({navigation}){
   return (
     <ScrollView style={signUpPage.container}>
       <View style ={signUpPage.header}>
-          <Text style ={signUpPage.title}>관심 분야를{"\n"}선택하세요.</Text>
+          <Text style ={signUpPage.title}>인증 분야를{"\n"}선택하세요.</Text>
       </View>
       <View>
         <View style={signUpPage.seperation}>
           <TouchableOpacity style={[interests[0] == 1 ? signUpPage.interestBoxActive : signUpPage.interestBox]}
             onPress={() => toggleInterest('건축')}>
-            <Text style={signUpPage.interestLabel}>건축</Text>
+            <Image style={signUpPage.interestImg} source={interests[0] == 1 ? ConstructImgActive : ConstructImg}/>
+            <Text style={[interests[0] == 1 ? signUpPage.interestLabelActive : signUpPage.interestLabel]}>건축</Text>
           </TouchableOpacity>
           <TouchableOpacity style={[interests[1] == 1 ? signUpPage.interestBoxActive : signUpPage.interestBox]}
             onPress={() => toggleInterest('전기')}>
+            <Image style={signUpPage.interestImg} source={ElectricImg}/>
             <Text style={signUpPage.interestLabel}>전기</Text>
           </TouchableOpacity>
         </View>
         <View style={signUpPage.seperation}>
           <TouchableOpacity style={[interests[2] == 1 ? signUpPage.interestBoxActive : signUpPage.interestBox]}
             onPress={() => toggleInterest('배달')}>
+            <Image style={signUpPage.interestImg} source={DeliveryImg}/>
             <Text style={signUpPage.interestLabel}>배달</Text>
           </TouchableOpacity>
           <TouchableOpacity style={[interests[3] == 1 ? signUpPage.interestBoxActive : signUpPage.interestBox]}
             onPress={() => toggleInterest('단순작업')}>
+            <Image style={signUpPage.interestImg} source={SimpleImg}/>
             <Text style={signUpPage.interestLabel}>단순작업</Text>
           </TouchableOpacity>
         </View>
