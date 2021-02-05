@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { StyleSheet, Text, View, ScrollView, Button, Alert, TouchableOpacity, TextInput } from "react-native";
 import 'react-native-gesture-handler';
 import {basicFont} from '../App';
@@ -193,28 +193,19 @@ const signUpPage = StyleSheet.create({
     paddingBottom: -20,
     color: "#000000"
   },
-  seperation: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
   title: titleTitle,
-  notChoice: notChoiceLayer,
-  choice: choiceLayer,
-  ClickedOn: choiceClickedOn,
-  ClickedOff: choiceClickedOff,
-  mail: layerMail,
-  mailBox : rectangleMail,
-  pwdBox : rectanglePwd,
-  layer: layer,
-  Birth : layerBirth,
-  Sex: layerSex,
-  Addr: layerAddr,
-  AddrDetail: layerAddrDetail,
   nextBtn: {
     alignSelf: 'stretch',
     height: 55,
     borderRadius: 27.6,
     backgroundColor: "#d1d1d1",
+    marginTop: 50
+  },
+  nextBtnActive: {
+    alignSelf: 'stretch',
+    height: 55,
+    borderRadius: 27.6,
+    backgroundColor: colors.signatureBlue,
     marginTop: 50
   },
   nextBtnLabel: {
@@ -227,67 +218,98 @@ const signUpPage = StyleSheet.create({
     color: colors.white,
     paddingTop: 15
   },
-  bankWrap: {
+  seperation: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10
+    width: '100%',
+    alignItems: 'center',
+    textAlign: 'center',
+    marginTop: 10,
+    paddingLeft: 35,
+    paddingRight: 35
   },
-  bankNm: {
-    flexDirection: 'row',
-    width: 100
+  interestBox: {
+    width: 144,
+    height: 130,
+    opacity: 0.7,
+    borderRadius: 10.7,
+    borderStyle: "solid",
+    borderWidth: 2.1,
+    borderColor: '#f3f3f3'
   },
-  bankInfo: {
-    width: 300,
-    marginLeft: 15
+  interestBoxActive: {
+    width: 144,
+    height: 130,
+    opacity: 0.7,
+    borderRadius: 10.7,
+    borderStyle: "solid",
+    borderWidth: 2.1,
+    borderColor: colors.blue
+  },
+  interestLabel: {
+    color: colors.blue,
+    textAlign: 'center'
   },
 });
 
+function interestScreen({navigation}){
+  const [interests, setInterests] = useState([0,0,0,0]);
+  var interestNames = ["건축", "전기", "배달", "단순작업"];
+  var isDone = false;
 
-function profileScreen({navigation}){
+  function toggleInterest(name) {
+    var index = interestNames.indexOf(name);
+
+    if (index == -1) {
+      return false;
+    }
+
+    interests[index] = interests[index] ? 0 : 1;
+    setInterests({...interests});
+  }
+
+  for (var i = 0; i < Object.keys(interests).length; i++) {
+    if (interests[i] == 1) {
+      isDone = true;
+      break;
+    }
+  }
+
   return (
     <ScrollView style={signUpPage.container}>
-        <View style ={signUpPage.header}>
-            <Text style ={signUpPage.title}>더 자세한 정보가{"\n"}필요해요.</Text>
+      <View style ={signUpPage.header}>
+          <Text style ={signUpPage.title}>관심 분야를{"\n"}선택하세요.</Text>
+      </View>
+      <View>
+        <View style={signUpPage.seperation}>
+          <TouchableOpacity style={[interests[0] == 1 ? signUpPage.interestBoxActive : signUpPage.interestBox]}
+            onPress={() => toggleInterest('건축')}>
+            <Text style={signUpPage.interestLabel}>건축</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[interests[1] == 1 ? signUpPage.interestBoxActive : signUpPage.interestBox]}
+            onPress={() => toggleInterest('전기')}>
+            <Text style={signUpPage.interestLabel}>전기</Text>
+          </TouchableOpacity>
         </View>
-        <Text style ={signUpPage.text}>예치금 환불 계좌</Text>
-        <View style={signUpPage.bankWrap}>
-          <View style={signUpPage.bankNm}>
-            <DropDownPicker
-              items={[
-                  {label: '은행', value: 'default', hidden:true},
-                  {label: '농협', value: 'NH'},
-                  {label: '국민', value: 'KB'},
-              ]}
-              defaultValue="default"
-              containerStyle={{height: 44, width: 100}}
-              style={{backgroundColor: '#ffffff', width: 100}}
-              itemStyle={{
-                  justifyContent: 'flex-start'
-              }}
-              dropDownStyle={{backgroundColor: '#fafafa'}}
-            />
-          </View>
-          <View style={signUpPage.bankInfo}>
-            <TextInput 
-                placeholder = "- 없이 입력해주세요."
-                style ={signUpPage.mail} 
-                autoCapitalize = "none"/>
-          </View>
+        <View style={signUpPage.seperation}>
+          <TouchableOpacity style={[interests[2] == 1 ? signUpPage.interestBoxActive : signUpPage.interestBox]}
+            onPress={() => toggleInterest('배달')}>
+            <Text style={signUpPage.interestLabel}>배달</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[interests[3] == 1 ? signUpPage.interestBoxActive : signUpPage.interestBox]}
+            onPress={() => toggleInterest('단순작업')}>
+            <Text style={signUpPage.interestLabel}>단순작업</Text>
+          </TouchableOpacity>
         </View>
-        <Text style ={signUpPage.text}>소개글을 적어주세요!</Text>
-        <TextInput 
-            placeholder = "역량 위주로 작성하면 도움이 돼요!"
-            style ={signUpPage.pwdBox} 
-            multiline
-            autoCapitalize = "none"/>
+      </View>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <TouchableOpacity style={signUpPage.nextBtn}
-        onPress={() => navigation.navigate('setInterest')}>
-          <Text style={signUpPage.nextBtnLabel}>가입하기</Text>
+        <TouchableOpacity style={[isDone ? signUpPage.nextBtnActive : signUpPage.nextBtn]}
+        onPress={() => navigation.navigate('main')}>
+          <Text style={signUpPage.nextBtnLabel}>가입완료</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
   );
 }
 
-export default profileScreen
+export default interestScreen

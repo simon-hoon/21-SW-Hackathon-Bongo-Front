@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import signUpScreen from './src/signUp';
 import profileScreen from './src/setProfile';
+import interestScreen from './src/setInterest';
 import MainScreen from './src/Mainpage';
 
 import logo from './src/images/logoWhite.png';
@@ -119,7 +120,15 @@ export default function App() {
             headerTitle:"회원가입",
             headerBackTitle:" ",
           }}/>
-          <Stack.Screen name="main" component={MainScreen} />
+          <Stack.Screen name="setInterest" component={interestScreen}
+          options={{
+            headerTitle:"회원가입",
+            headerBackTitle:" ",
+          }}/>
+          <Stack.Screen name="main" component={MainScreen}
+          options={{
+            headerShown:false
+          }} />
       </Stack.Navigator>
       </NavigationContainer>
   );
