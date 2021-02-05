@@ -4,7 +4,8 @@ import 'react-native-gesture-handler';
 import {basicFont} from '../App';
 import Feather from 'react-native-vector-icons/Feather'
 import DropDownPicker from 'react-native-dropdown-picker';
-import Progress from './components/progress';
+
+import SemiCircleProgressBar from "react-progressbar-semicircle";
 
 import ConstructImg from './images/const.png';
 import ConstructImgActive from './images/constBlue.png';
@@ -303,8 +304,10 @@ const calcPage = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    marginTop:10
-  }
+    marginTop:10,
+    alignItems: 'center',
+    paddingTop: 30
+  },
 });
 
 function calculateScreen({navigation}){
@@ -328,6 +331,8 @@ function calculateScreen({navigation}){
 
       <Text style={calcPage.text}>2021년 2월 6일</Text>
       <View style={calcPage.progressBox}>
+        <SemiCircleProgressBar percentage={step == 0 ? 33 : 100} showPercentValue strokeWidth={15} stroke="#0036d5"
+          style={calcPage.semiProgress} />
       </View>
 
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
