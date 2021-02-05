@@ -181,7 +181,6 @@ const layerAddrDetail= {
 const calcPage = StyleSheet.create({
   container: {
       flex: 1,
-      justifyContent: 'space-around',
       backgroundColor: colors.white
   },
   scrollView: {
@@ -368,7 +367,7 @@ function calculateScreen({navigation}){
 
   return (
   <View style={calcPage.container}>
-    <ScrollView style={calcPage.ScrollView}>
+    <ScrollView>
       <View style={{padding:22}}>
         <View style ={calcPage.header}>
             <Text style ={calcPage.title}>오늘 BONGO{"\n"}정산 확인</Text>
@@ -461,8 +460,6 @@ function calculateScreen({navigation}){
 }
 
 const menuBox = {
-  flex: 1,
-  width: '100%',
   height: 84,
   backgroundColor: colors.flatBlueSkyLight,
   flexDirection: 'row',

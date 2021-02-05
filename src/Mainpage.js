@@ -296,7 +296,7 @@ const signUpPage = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         paddingBottom: 17.4,
-        marginTop: 35
+        marginTop: 25
     },
     seperation: {
         flexDirection: 'row',
@@ -357,177 +357,180 @@ const signUpPage = StyleSheet.create({
 function MainScreen({navigation}) {
   return (
     <View style={signUpPage.container}>
-        <View style ={signUpPage.header}>
-            <Text style ={signUpPage.title}>오늘의 BONGO를{"\n"}찾아보세요!</Text>
-        </View>
-
-        <Text style ={signUpPage.prefer}>BONGO 추천 </Text>
-        
-        <ScrollView style={signUpPage.cardList}
-        horizontal={true}
-        pagingEnabled={true}
-        >
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/photo.jpg")}
-                />
-                <Text>Title</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>2시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>35,000</Text>                    
-                </View>                
-            </View>
-            
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/photo.jpg")}
-                />
-                <Text>Title</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>4시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>57,560</Text>          
-                </View>                
+        <ScrollView>
+            <View style ={signUpPage.header}>
+                <Text style ={signUpPage.title}>오늘의 BONGO를{"\n"}찾아보세요!</Text>
             </View>
 
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/photo.jpg")}
-                />
-                <Text>Title</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>5시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>86,170</Text>                    
-                </View>                
-            </View>
+            <Text style ={signUpPage.prefer}>BONGO 추천 </Text>
+            <ScrollView style={signUpPage.cardList}
+            horizontal={true}
+            pagingEnabled={true}
+            >
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/photo.jpg")}
+                    />
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>2시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>35,000</Text>                    
+                    </View>                
+                </View>
+                
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/photo.jpg")}
+                    />
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>4시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>57,560</Text>          
+                    </View>                
+                </View>
 
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/photo.jpg")}
-                />
-                <Text>Title</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>9시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>111,310</Text>                    
-                </View>                
-            </View>
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/photo.jpg")}
+                    />
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>5시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>86,170</Text>                    
+                    </View>                
+                </View>
 
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/photo.jpg")}
-                />
-                <Text>Title</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>4시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>57,560</Text>                    
-                </View>                
-            </View>
-        </ScrollView>
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/photo.jpg")}
+                    />
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>9시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>111,310</Text>                    
+                    </View>                
+                </View>
+
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/photo.jpg")}
+                    />
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>4시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>57,560</Text>                    
+                    </View>                
+                </View>
+            </ScrollView>
 
             <Text style ={signUpPage.prefer}>자동배치 BONGO </Text>
-        <ScrollView
-        horizontal = {true}
-        pagingEnabled={true}
-        >
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/photo.jpg")}
-                />
-                <View style={signUpPage.centre}>
-                    <View style={signUpPage.blueCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoCheck}/>
+            <ScrollView
+            horizontal = {true}
+            pagingEnabled={true}
+            >
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/photo.jpg")}
+                    />
+                    <View style={signUpPage.centre}>
+                        <View style={signUpPage.blueCircle}>
+                            <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                        </View>
                     </View>
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>9시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>111,310</Text>                    
+                    </View>                
                 </View>
-                <Text>Title</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>9시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>111,310</Text>                    
-                </View>                
-            </View>
 
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/photo.jpg")}
-                />
-                <View style={signUpPage.centre}>
-                    <View style={signUpPage.whiteCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoClose}/>
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/photo.jpg")}
+                    />
+                    <View style={signUpPage.centre}>
+                        <View style={signUpPage.whiteCircle}>
+                            <Image style={signUpPage.logoContainer} source={logoClose}/>
+                        </View>
                     </View>
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>5시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>64,830</Text>                    
+                    </View>                
                 </View>
-                <Text>Title</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>5시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>64,830</Text>                    
-                </View>                
-            </View>
 
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/photo.jpg")}
-                />
-                <View style={signUpPage.centre}>
-                    <View style={signUpPage.whiteCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoClose}/>
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/photo.jpg")}
+                    />
+                    <View style={signUpPage.centre}>
+                        <View style={signUpPage.whiteCircle}>
+                            <Image style={signUpPage.logoContainer} source={logoClose}/>
+                        </View>
                     </View>
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>7시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>85,710</Text>                    
+                    </View>                
                 </View>
-                <Text>Title</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>7시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>85,710</Text>                    
-                </View>                
-            </View>
 
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/photo.jpg")}
-                />
-                <View style={signUpPage.centre}>
-                    <View style={signUpPage.blueCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/photo.jpg")}
+                    />
+                    <View style={signUpPage.centre}>
+                        <View style={signUpPage.blueCircle}>
+                            <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                        </View>
                     </View>
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>12시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>155,270</Text>                    
+                    </View>                
                 </View>
-                <Text>Title</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>12시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>155,270</Text>                    
-                </View>                
-            </View>
 
-            <View style={signUpPage.mold}>
-                <Image style={signUpPage.style}
-                source={require("../src/images/photo.jpg")}
-                />
-                <View style={signUpPage.centre}>
-                    <View style={signUpPage.whiteCircle}>
-                        <Image style={signUpPage.logoContainer} source={logoClose}/>
+                <View style={signUpPage.mold}>
+                    <Image style={signUpPage.style}
+                    source={require("../src/images/photo.jpg")}
+                    />
+                    <View style={signUpPage.centre}>
+                        <View style={signUpPage.whiteCircle}>
+                            <Image style={signUpPage.logoContainer} source={logoClose}/>
+                        </View>
                     </View>
+                    <Text>Title</Text>
+                    <View style ={signUpPage.seperation}>
+                        <Image style={signUpPage.logoContainer} source={logoClock} />
+                        <Text style={signUpPage.time}>3시간</Text>
+                        <Image style={signUpPage.logoContainer} source={logoStar} />
+                        <Text style={signUpPage.money}>44,190</Text>                    
+                    </View>                
                 </View>
-                <Text>Title</Text>
-                <View style ={signUpPage.seperation}>
-                    <Image style={signUpPage.logoContainer} source={logoClock} />
-                    <Text style={signUpPage.time}>3시간</Text>
-                    <Image style={signUpPage.logoContainer} source={logoStar} />
-                    <Text style={signUpPage.money}>44,190</Text>                    
-                </View>                
-            </View>
+            </ScrollView>
+
         </ScrollView>
+
         <View style ={signUpPage.menu}>
             <View style ={{marginTop:20}}>
                 <TouchableOpacity 
