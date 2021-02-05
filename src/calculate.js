@@ -8,11 +8,8 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import SemiCircleProgressBar from "react-progressbar-semicircle";
 import SemiCircleProgress from './components/test';
 
-import ConstructImg from './images/const.png';
-import ConstructImgActive from './images/constBlue.png';
-import ElectricImg from './images/elec.png';
-import DeliveryImg from './images/delivery.png';
-import SimpleImg from './images/keyword.png';
+import MoneyImg from './images/iconStrokeMoney.png';
+import ClockImg from './images/iconStrockClock.png';
 
 const colors = {
   blue: "#0036d5",
@@ -190,7 +187,8 @@ const calcPage = StyleSheet.create({
   header: {
       flex: 1,
       justifyContent: 'flex-end',
-      paddingBottom: 17.4
+      paddingBottom: 17.4,
+      paddingTop: 15
   },
   text: {
     flex: 1,
@@ -208,14 +206,14 @@ const calcPage = StyleSheet.create({
     height: 55,
     borderRadius: 27.6,
     backgroundColor: "#d1d1d1",
-    marginTop: 50
+    marginTop: 30
   },
   nextBtnActive: {
     alignSelf: 'stretch',
     height: 55,
     borderRadius: 27.6,
     backgroundColor: colors.signatureBlue,
-    marginTop: 50
+    marginTop: 30
   },
   doneBtn: {
     alignSelf: 'stretch',
@@ -223,7 +221,7 @@ const calcPage = StyleSheet.create({
     borderRadius: 27.6,
     backgroundColor: colors.white,
     borderColor: colors.blue,
-    marginTop: 50,
+    marginTop: 30,
     borderRadius: 27.6,
     borderStyle: "solid",
     borderWidth: 1.7,
@@ -297,7 +295,7 @@ const calcPage = StyleSheet.create({
   },
   progressBox: {
     width: '100%',
-    height: 300,
+    height: 220,
     backgroundColor: colors.white,
     borderRadius: 1,
     shadowColor: "#000",
@@ -338,6 +336,16 @@ const calcPage = StyleSheet.create({
     letterSpacing: 0,
     textAlign: "center",
     color: "#898989"
+  },
+  smallImg: {
+    width:24,
+    height:24
+  },
+  divider: {
+    borderBottomColor: '#eaeaea',
+    borderBottomWidth: 2,
+    width: '100%',
+    marginTop: 10
   }
 });
 
@@ -383,6 +391,28 @@ function calculateScreen({navigation}){
         onPress={() => step == 1 ? setStep(2) : null}>
           <Text style={[step > 1 ? calcPage.nextBtnLabelActive : calcPage.nextBtnLabel]}>{step > 1 ? "정산 완료" : "정산 받기"}</Text>
         </TouchableOpacity>
+      </View>
+
+      <Text style={[calcPage.text, {color:colors.blue, marginTop:30, fontSize:14}]}>
+        상세 내용
+      </Text>
+      <Text style={[calcPage.text, {marginTop:20, fontSize:16, fontWeight:'bold'}]}>
+        오늘 10시간 강남구 전기 관련 업무자
+      </Text>
+
+      <View>
+        <View style={[calcPage.seperation, {alignItems:'flex-start', paddingLeft:0, marginTop:25}]}>
+          <Image style={calcPage.smallImg} source={ClockImg}/>
+          <Text style={[calcPage.text, {textAlign:'left', paddingLeft:10, paddingTop:5}]}>시간</Text>
+          <Text style={[calcPage.text, {paddingTop:5, textAlign:'left'}]}>10:00 - 20:00</Text>
+        </View>
+        <View style={calcPage.divider}></View>
+        <View style={[calcPage.seperation, {alignItems:'flex-start', paddingLeft:0, marginTop:15}]}>
+          <Image style={calcPage.smallImg} source={MoneyImg}/>
+          <Text style={[calcPage.text, {textAlign:'left', paddingLeft:10, paddingTop:5}]}>일급</Text>
+          <Text style={[calcPage.text, {paddingTop:5, textAlign:'left'}]}>100,000원</Text>
+        </View>
+        <View style={calcPage.divider}></View>
       </View>
     </ScrollView>
   );
