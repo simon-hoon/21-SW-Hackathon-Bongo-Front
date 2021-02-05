@@ -246,11 +246,20 @@ const signUpPage = StyleSheet.create({
     color: colors.white,
     paddingTop: 15
   },
+  checkBtnActive: {
+    width: 74,
+    height: 44,
+    opacity: 0.7,
+    borderRadius: 3.3,
+    backgroundColor: colors.blue
+  },
 });
 
 function signUpScreen({navigation}){
   const [user_type, setType] = useState('N');
   const [user_gender, setGender] = useState('F');
+  const [user_email, setEmail] = useState('');
+  const [company_nm, setCompanyNm] = useState('');
 
   if (user_type == "N") {
     // 일반 회원
@@ -276,10 +285,13 @@ function signUpScreen({navigation}){
           <View style={signUpPage.seperation}>
             <TextInput 
               placeholder = "정확하게 입력해주세요"
-              style ={signUpPage.mail} 
+              style ={signUpPage.mail}
+              onChangeText={(text) => setEmail(text)}
+              value={user_email}
+              name="user_email"
               autoCapitalize = "none"/>
             <TouchableOpacity 
-              style={signUpPage.checkBtn}
+              style={[user_email == '' ? signUpPage.checkBtn : signUpPage.checkBtnActive]}
               onPress={() => setGender('F')}>
                 <Text style={signUpPage.checkBtnLabel}>중복확인</Text>
             </TouchableOpacity>
@@ -346,21 +358,27 @@ function signUpScreen({navigation}){
           <TextInput 
               placeholder = "정확하게 입력해주세요"
               style ={signUpPage.mail} 
-              autoCapitalize = "none"/>
+              autoCapitalize = "none"
+              onChangeText={(text) => setCompanyNm(text)}
+              value={company_nm}
+              name="company_nm"/>
           <TouchableOpacity 
-              style={signUpPage.checkBtn}
+              style={[company_nm == '' ? signUpPage.checkBtn : signUpPage.checkBtnActive]}
               onPress={() => setGender('F')}>
                 <Text style={signUpPage.checkBtnLabel}>중복확인</Text>
-            </TouchableOpacity>
+          </TouchableOpacity>
         </View>
       <Text style ={signUpPage.text}>이메일</Text>
           <View style={signUpPage.seperation}>
             <TextInput 
               placeholder = "정확하게 입력해주세요"
-              style ={signUpPage.mail} 
+              style ={signUpPage.mail}
+              onChangeText={(text) => setEmail(text)}
+              value={user_email}
+              name="user_email"
               autoCapitalize = "none"/>
             <TouchableOpacity 
-              style={signUpPage.checkBtn}
+              style={[user_email == '' ? signUpPage.checkBtn : signUpPage.checkBtnActive]}
               onPress={() => setGender('F')}>
                 <Text style={signUpPage.checkBtnLabel}>중복확인</Text>
             </TouchableOpacity>

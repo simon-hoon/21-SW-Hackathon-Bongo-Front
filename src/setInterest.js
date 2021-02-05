@@ -304,7 +304,7 @@ function interestScreen({navigation}){
       </View>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <TouchableOpacity style={[isDone ? signUpPage.nextBtnActive : signUpPage.nextBtn]}
-        onPress={() => navigation.navigate('main')}>
+        onPress={() => isDone ? navigation.navigate('main') : null}>
           <Text style={signUpPage.nextBtnLabel}>가입완료</Text>
         </TouchableOpacity>
       </View>

@@ -69,7 +69,7 @@ const rectangleMail = {
 };
 
 const rectanglePwd = {
-  width: 327,
+  width: '100%',
   height: 283,
   opacity: 0.7,
   borderRadius: 3.3,
@@ -107,7 +107,7 @@ const choiceLayer = {
 
 
 const layerMail= {
-  width: 227,
+  width: 255,
   height: 44,
   opacity: 0.7,
   borderRadius: 3.3,
