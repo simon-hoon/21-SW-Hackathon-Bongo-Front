@@ -4,6 +4,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, SafeAreaView, Alert ,Image, TouchableOpacity} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import {basicFont} from '../App';
 
 import logoErect from './images/iconStrockErectWhite.png';
 import logoElect from './images/iconStrockElectBlue.png';
@@ -25,16 +26,15 @@ const colors = {
   steel10: "#8e8e93"
 };
 
-const titleTitle = {
-    width: 347,
-    height: 90.6,
-    fontFamily: "NotoSansCJKkr",
+const titleTitle= {
+    fontFamily: basicFont,
     fontSize: 32,
     fontWeight: "bold",
     fontStyle: "normal",
     lineHeight: 44.8,
     letterSpacing: 0,
-    color: colors.black
+    color: "#000000",
+    paddingTop: 10
 };
 
 const searchField = {
@@ -576,74 +576,27 @@ const layoutProfile = {
 
 //
 
-const styles = StyleSheet.create({
+const mainPage = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.white,
-        alignItems: 'center',
     },
-    titleContainer: {
-        width: 375,
-        height: 117,
+    header: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        paddingBottom: 17.4
     },
-    searchContainer: {
-        width: 375,
-        height: 57,
-        marginTop: 116.5
-    },
-    preferLayoutContainer: { // BONGO 추천
-        width: 375,
-        height: 56,
-        marginTop: 173
-    },
-    listCategoryContainer: { // 아이콘
-        width: 375,
-        height: 114,
-        marginTop: 229
-    },
-    layoutCardTimeMoneyContainer1: {
-        width: 375,
-        height: 250,
-        marginTop: 345
-    },
-    pageOrderContainer1: {
-        width: 50,
-        height: 50,
-        marginTop: 575
-    },
-    autoLayoutContainer: { // 자동배치 BONGO
-        width: 375,
-        height: 56,
-        marginTop: 668
-    },
-    layoutCardTimeMoneyContainer2: {
-        width: 375,
-        height: 282,
-        marginTop: 724
-    },
-    pageOrderContainer2: {
-        width: 50,
-        height: 50,
-        marginTop: 924
-    },
-    bgContainer: {
-        width: 375,
-        height: 84,
-        backgroundColor: colors.flatBlueSkyLight,
-        shadowColor: color.white,
-        shadowOffset: {
-          width: 0,
-          height: 8
-        },
-        shadowRadius: 20,
-        shadowOpacity: 1
-    }
+    title: titleTitle,
 });
 
 
 function MainScreen({navigation}) {
   return (
-    <View style={styles.container}>
+    <View style={mainPage.container}>
+        <View style ={mainPage.header}>
+            <Text style ={mainPage.title}>오늘의 BONGO를{"\n"}찾아보세요!</Text>
+        </View>
+        
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Button
             title="뒤로(디버깅용)"
