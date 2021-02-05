@@ -1,8 +1,9 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, TextInput, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Button, Alert, TouchableOpacity, TextInput } from "react-native";
 import 'react-native-gesture-handler';
 import {basicFont} from '../App';
 import Feather from 'react-native-vector-icons/Feather'
+import DropDownPicker from 'react-native-dropdown-picker';
 
 const colors = {
   blue: "#0036d5",
@@ -68,13 +69,15 @@ const rectangleMail = {
 };
 
 const rectanglePwd = {
-  width: 331,
-  height: 44,
+  width: 327,
+  height: 283,
   opacity: 0.7,
   borderRadius: 3.3,
   borderStyle: "solid",
   borderWidth: 1.1,
-  borderColor: "#cecece"
+  borderColor: "#cecece",
+  paddingLeft: 10,
+  paddingTop: 10
 };
 ////////////////////////////////////
 
@@ -104,7 +107,7 @@ const choiceLayer = {
 
 
 const layerMail= {
-  width: 243,
+  width: 227,
   height: 44,
   opacity: 0.7,
   borderRadius: 3.3,
@@ -223,70 +226,68 @@ const signUpPage = StyleSheet.create({
     textAlign: "center",
     color: colors.white,
     paddingTop: 15
-  }
+  },
+  bankWrap: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10
+  },
+  bankNm: {
+    flexDirection: 'row',
+    width: 100
+  },
+  bankInfo: {
+    width: 300,
+    marginLeft: 15
+  },
 });
 
-function signUpScreen({navigation}){
+
+function profileScreen({navigation}){
   return (
     <ScrollView style={signUpPage.container}>
         <View style ={signUpPage.header}>
-            <Text style ={signUpPage.title}>안녕하세요.{"\n"}BONGO입니다!</Text>
+            <Text style ={signUpPage.title}>더 자세한 정보가{"\n"}필요해요.</Text>
         </View>
-            <Text style ={signUpPage.text}>사용자를 알려주세요</Text>
-        <View style ={signUpPage.seperation}>
-        <TouchableOpacity 
-      style={signUpPage.ClickedOn}
-      onPress={() => Alert.alert('just clicked')}>
-        <Text style={signUpPage.choice}>일반 사용자</Text>
-      </TouchableOpacity>
-              <TouchableOpacity 
-      style={signUpPage.ClickedOff}
-      onPress={() => Alert.alert('just clicked')}>
-        <Text style={signUpPage.notChoice}>업체 사용자</Text>
-      </TouchableOpacity>
-      </View>
-    <Text style ={signUpPage.text}>이메일</Text>
+        <Text style ={signUpPage.text}>예치금 환불 계좌</Text>
+        <View style={signUpPage.bankWrap}>
+          <View style={signUpPage.bankNm}>
+            <DropDownPicker
+              items={[
+                  {label: '은행', value: 'default', hidden:true},
+                  {label: '농협', value: 'NH'},
+                  {label: '국민', value: 'KB'},
+              ]}
+              defaultValue="default"
+              containerStyle={{height: 44, width: 100}}
+              style={{backgroundColor: '#ffffff', width: 100}}
+              itemStyle={{
+                  justifyContent: 'flex-start'
+              }}
+              dropDownStyle={{backgroundColor: '#fafafa'}}
+            />
+          </View>
+          <View style={signUpPage.bankInfo}>
+            <TextInput 
+                placeholder = "- 없이 입력해주세요."
+                style ={signUpPage.mail} 
+                autoCapitalize = "none"/>
+          </View>
+        </View>
+        <Text style ={signUpPage.text}>소개글을 적어주세요!</Text>
         <TextInput 
-            placeholder = "정확하게 입력해주세요"
-            style ={signUpPage.mail} 
-            autoCapitalize = "none"/>
-        <Text style ={signUpPage.text}>비밀번호</Text>
-        <TextInput 
-            placeholder = "6~15자의 영문, 숫자조합으로 입력해주세요."
+            placeholder = "역량 위주로 작성하면 도움이 돼요!"
             style ={signUpPage.pwdBox} 
+            multiline
             autoCapitalize = "none"/>
-       <Text style ={signUpPage.text}>비밀번호 확인</Text>
-        <TextInput
-            style ={signUpPage.layer} 
-            autoCapitalize = "none"/>
-       <Text style ={signUpPage.text}>이름</Text>
-        <TextInput
-            style ={signUpPage.layer} 
-            autoCapitalize = "none"/>
-<Text style ={signUpPage.text}>생년월일</Text>
-      <View style ={signUpPage.Sex}>
-            <Text style ={signUpPage.text}>성별</Text>
-        </View>
-        <View style ={signUpPage.seperation}>
-        <TouchableOpacity 
-      style={signUpPage.ClickedOn}
-      onPress={() => Alert.alert('just clicked')}>
-        <Text style={signUpPage.choice}>여자</Text>
-      </TouchableOpacity>
-              <TouchableOpacity 
-      style={signUpPage.ClickedOff}
-      onPress={() => Alert.alert('just clicked')}>
-        <Text style={signUpPage.notChoice}>남자</Text>
-      </TouchableOpacity>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity style={signUpPage.nextBtn}
+        onPress={() => navigation.navigate('main')}>
+          <Text style={signUpPage.nextBtnLabel}>가입하기</Text>
+        </TouchableOpacity>
       </View>
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <TouchableOpacity style={signUpPage.nextBtn}
-      onPress={() => navigation.navigate('setProfile')}>
-        <Text style={signUpPage.nextBtnLabel}>가입하기</Text>
-      </TouchableOpacity>
-    </View>
     </ScrollView>
   );
 }
 
-export default signUpScreen
+export default profileScreen

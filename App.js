@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, Button, SafeAreaView, Alert ,Image, TouchableOp
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import signUpScreen from './src/signUp';
+import profileScreen from './src/setProfile';
 import MainScreen from './src/Mainpage';
 
 import logo from './src/images/logoWhite.png';
@@ -109,6 +110,11 @@ export default function App() {
       <Stack.Navigator>
           <Stack.Screen name="home" component={HomeScreen} options={{headerShown:false, headerTitle:""}} />
           <Stack.Screen name="signUp" component={signUpScreen}
+          options={{
+            headerTitle:"회원가입",
+            headerBackTitle:" ",
+          }}/>
+          <Stack.Screen name="setProfile" component={profileScreen}
           options={{
             headerTitle:"회원가입",
             headerBackTitle:" ",
