@@ -422,8 +422,6 @@ function interestScreen({navigation}){
 }
 
 function InterestModal(props) {
-  console.log('Visible', props.modalVisible);
-
   return (
     <Modal
           animationType="slide"

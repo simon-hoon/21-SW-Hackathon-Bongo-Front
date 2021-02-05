@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { StyleSheet, Text, View, ScrollView, Button, Alert, TouchableOpacity, TouchableHighlight, TextInput, Image, Modal, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Button, Alert, TouchableOpacity, TouchableHighlight, TextInput, Image, Modal } from "react-native";
 import 'react-native-gesture-handler';
 import {basicFont} from '../App';
 import Feather from 'react-native-vector-icons/Feather'
@@ -9,6 +9,7 @@ import SemiCircleProgressBar from "react-progressbar-semicircle";
 import SemiCircleProgress from './components/test';
 
 import MoneyImg from './images/iconStrokeMoney.png';
+import MoneyBlueImg from './images/iconStrokeMoneyBlue.png';
 import ClockImg from './images/iconStrockClock.png';
 
 const colors = {
@@ -363,11 +364,17 @@ function calculateScreen({navigation}){
     }
   }
 
+  function openTipModal() {
+    setModalVisible(true);
+    setStep(2);
+  }
+
   setTimeout(stepChanger, 3000);
 
   return (
   <View style={calcPage.container}>
     <ScrollView>
+      <TipModal modalVisible = { modalVisible } setModalVisible={setModalVisible}/>
       <View style={{padding:22}}>
         <View style ={calcPage.header}>
             <Text style ={calcPage.title}>오늘 BONGO{"\n"}정산 확인</Text>
@@ -393,7 +400,7 @@ function calculateScreen({navigation}){
 
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <TouchableOpacity style={[step == 1 ? calcPage.nextBtnActive : step == 0 ? calcPage.nextBtn : calcPage.doneBtn]}
-          onPress={() => step == 1 ? setStep(2) : null}>
+          onPress={() => step == 1 ? openTipModal() : null}>
             <Text style={[step > 1 ? calcPage.nextBtnLabelActive : calcPage.nextBtnLabel]}>{step > 1 ? "정산 완료" : "정산 받기"}</Text>
           </TouchableOpacity>
         </View>
@@ -458,6 +465,111 @@ function calculateScreen({navigation}){
   </View> 
   );
 }
+
+function TipModal(props) {
+  return (
+    <Modal
+          animationType="slide"
+          transparent={true}
+          visible={props.modalVisible}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <View style={styles.modalLogo} >
+                <Image style={{width:50, height:50, marginTop:10}} source={MoneyBlueImg}/>
+              </View>
+              <Text style={styles.modalText}>팁 15,000원이 들어왔습니다!</Text>
+
+              <TouchableHighlight
+                style={styles.bringBtn}
+                onPress={() => {
+                  props.setModalVisible(!props.modalVisible);
+                }}
+              >
+                <Text style={styles.textStyle}>받기</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+        </Modal>
+  );
+}
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(52, 52, 52, 0.14)'
+  },
+  modalView: {
+    width: 328,
+    height: 200,
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 1,
+    shadowRadius: 7,
+    elevation: 5
+  },
+  openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    fontFamily: basicFont,
+    fontSize: 17.7,
+    fontWeight: "bold",
+    fontStyle: "normal",
+    letterSpacing: 0.44,
+    textAlign: "center",
+    color: colors.white,
+    paddingTop: 15
+  },
+  modalText: {
+    marginBottom: 30,
+    fontFamily: basicFont,
+    fontSize: 16,
+    fontWeight: "bold",
+    fontStyle: "normal",
+    letterSpacing: 0.44,
+    textAlign: "center",
+    color: '#000000',
+    marginTop: -50
+  },
+  bringBtn: {
+    width: 265,
+    height: 55,
+    borderRadius: 27.6,
+    backgroundColor: colors.signatureBlue
+  },
+  modalLogo: {
+    top: -70,
+    width:70,
+    height: 70,
+    borderRadius:40,
+    backgroundColor:colors.white,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 1,
+    shadowRadius: 7,
+    alignItems:'center'
+  }
+});
 
 const menuBox = {
   height: 84,
