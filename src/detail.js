@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, SafeAreaView, ImageBackground, Image, ImageBase } from "react-native";
 import 'react-native-gesture-handler';
 import {basicFont} from '../App';
@@ -204,18 +204,21 @@ const completeStyle = StyleSheet.create({
     menuText: menuBoxText,
     menuTextChoiced : menuBoxTextChoiced,
     barLayer : barLayer,
-    nextBtn: {
+    nextBtnActive: {
+      alignSelf: 'stretch',
+      backgroundColor: '#d1d1d1',
+      marginTop: 50,
+      width: '90%',
+      marginLeft: '5%',
       height: 55,
       borderRadius: 27.6,
-      backgroundColor: "#d1d1d1",
-      marginTop: 50,
-      width: 331
     },
-    nextBtnActive: {
+    nextBtn: {
       alignSelf: 'stretch',
       backgroundColor: colors.blue,
       marginTop: 50,
-      width: 331,
+      width: '90%',
+      marginLeft: '5%',
       height: 55,
       borderRadius: 27.6,
     },
@@ -234,10 +237,13 @@ const completeStyle = StyleSheet.create({
 
 
 function detailScreen({navigation}){
+    const [isDone, setDone] = useState(false);
+
       return (
-    <SafeAreaView style={completeStyle.container}>
+    <View style={completeStyle.container}>
             <View style={{marginLeft:22, marginTop: 50, marginBottom:-120,}}>
-                <TouchableOpacity style={completeStyle.workBtnNonActive}>
+                <TouchableOpacity style={completeStyle.workBtnNonActive}
+                  onPress={() => navigation.navigate('main')}>
                     <Image style={completeStyle.logoContainer} source={constructImg} />
                 </TouchableOpacity>
             </View>
@@ -289,13 +295,13 @@ function detailScreen({navigation}){
           </View>
 
           <View style={{alignItems:'center'}}>
-            <TouchableOpacity style={completeStyle.nextBtnActive}
-              onPress={() => navigation.navigate('setInterest')}>
-                <Text style={completeStyle.nextBtnLabel}>탑승 신청</Text>
+            <TouchableOpacity style={[isDone ? completeStyle.nextBtnActive : completeStyle.nextBtn]}
+              onPress={() => setDone(true)}>
+                <Text style={completeStyle.nextBtnLabel}>{isDone ? '탑승 완료' : '탑승 신청'}</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 

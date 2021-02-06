@@ -463,8 +463,8 @@ function MainScreen({navigation}) {
             pagingEnabled={true}
             showsHorizontalScrollIndicator={false}
             >
-                <View style={signUpPage.mold}
-                    onClick={() => navigation.navigate('detail')}>
+                <TouchableOpacity style={signUpPage.mold}
+                    onPress={() => navigation.navigate('detail')}>
                     <Image style={signUpPage.style}
                     source={require("../src/images/1.jpg")}
                     />
@@ -475,7 +475,7 @@ function MainScreen({navigation}) {
                         <Image style={signUpPage.logoContainer} source={logoStar} />
                         <Text style={signUpPage.money}>35,000</Text>                    
                     </View>                
-                </View>
+                </TouchableOpacity>
                 
                 <View style={signUpPage.mold}>
                     <Image style={signUpPage.style}
