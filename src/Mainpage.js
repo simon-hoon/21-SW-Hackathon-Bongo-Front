@@ -1,12 +1,13 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Button, SafeAreaView, Alert ,Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView,Image, TouchableOpacity} from 'react-native';
 import {basicFont} from '../App';
 import { color } from 'react-native-reanimated';
 import { ScrollView } from 'react-native-gesture-handler';
 import Feather from 'react-native-vector-icons/Feather';
-import { SearchBar } from 'react-native-elements';
+import { Searchbar } from 'react-native-paper';
+
 
 import logoErect from './images/iconStrockErectWhite.png';
 import logoElect from './images/iconStrockElectBlue.png';
@@ -17,16 +18,24 @@ import logoStar from './images/iconStrockStar.png';
 import logoCheck from './images/iconStrockCheck.png';
 import logoClose from './images/iconStrockClose.png';
 
+import constructImg from './images/iconStrockErectWhite.png';
+import electricImg from './images/iconStrockElectBlue.png';
+import deliveryImg from './images/iconStrockDeliveryBlue.png';
+import simpleImg from './images/iconStrockSimpleBlue.png';
+
 
 const colors = {
-  blue: "#0046d5",
+  blue: "#0036d5",
   flatBlueSkyLight: "#fdfeff",
-  lightGray: "#d0d0d0",
   signatureBlue: "#0047cc",
-  colorPrimary500: "#00d5a7",
-  black: "#000000",
+  veryLightPink: "#d0d0d0",
   white: "#ffffff",
-  steel10: "#8e8e93"
+  lightGray: "#ededed",
+  textMiscBtnCenterBlackStyle: "#0b0b0b",
+  veryLightPinkTwo: "#b7b7b7",
+  signatureBlue2: "rgba(0, 71, 204, 0.2)",
+  colorPrimary500: "#00d5a7",
+  steel10: "rgba(142, 142, 147, 0.1)"
 };
 
 const titleTitle= {
@@ -318,6 +327,11 @@ const signUpPage = StyleSheet.create({
         height: 20,
         //marginTop: 5
     },
+    logoNewContainer:{
+        width: 35,
+        height: 35,
+        marginTop: 10
+    },
     blueCircle: {
         width: 50,
         height: 50,
@@ -342,7 +356,42 @@ const signUpPage = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
-    
+       certLabel: {
+        color: colors.blue,
+        textAlign: 'center',
+        marginTop: 20
+    },
+    workBtnActive:{
+    width: 56,
+    height: 56,
+    backgroundColor: "#0046d5",
+    borderRadius: 28,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: 'center',
+    marginBottom: 20, 
+    },
+    workBtnNonActive:{
+    width: 56,
+    height: 56,
+    backgroundColor: colors.white,
+    borderRadius: 28,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: 'center',
+    },
     cardList: layoutCardTimeMoney,
     title: titleTitle,
     prefer: layerPrefer,
@@ -358,22 +407,57 @@ const signUpPage = StyleSheet.create({
     menuTextChoiced : menuBoxTextChoiced,
 });
 
+const Search = () => {
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  const onChangeSearch = query => setSearchQuery(query);
+
+  return (
+    <Searchbar
+      placeholder="검색하세요."
+      onChangeText={onChangeSearch}
+      value={searchQuery}
+    />
+  );
+};
+
 
 function MainScreen({navigation}) {
-  return (
-    <View style={signUpPage.container}>
+    return (
+    <SafeAreaView style={signUpPage.container}>
         <ScrollView>
             <View style ={signUpPage.header}>
                 <Text style ={signUpPage.title}>오늘의 BONGO를{"\n"}찾아보세요!</Text>
             </View>
-                <SearchBar
-                    platform={'ios'}
-                    placeholder={' 검색하세요.'}
-                />
-            
-            
+            <Search/>
             <Text style ={signUpPage.prefer}>BONGO 추천 </Text>
-            
+            <View style ={{marginTop: 18, marginLeft:10, flexDirection: 'row', justifyContent:'space-around'}}>
+            <View>
+                <TouchableOpacity style={signUpPage.workBtnActive}>
+                    <Image style={signUpPage.logoNewContainer} source={constructImg} />
+                    <Text style={signUpPage.certLabel}>건설</Text>
+                </TouchableOpacity>
+            </View>
+            <View>
+                <TouchableOpacity style={signUpPage.workBtnNonActive}>
+                    <Image style={signUpPage.logoNewContainer} source={electricImg} />
+                    <Text style={signUpPage.certLabel}>전기</Text>
+                </TouchableOpacity>
+            </View>
+            <View>
+                <TouchableOpacity style={signUpPage.workBtnNonActive}>
+                    <Image style={signUpPage.logoNewContainer} source={deliveryImg} />
+                    <Text style={signUpPage.certLabel}>배달</Text>
+                </TouchableOpacity>
+            </View>
+            <View>
+                <TouchableOpacity style={signUpPage.workBtnNonActive}>
+                    <Image style={signUpPage.logoNewContainer} source={simpleImg} />
+                    <Text style={signUpPage.certLabel}>단순작업</Text>
+                </TouchableOpacity>
+            </View>
+            <Text style={{width:25}}></Text>
+            </View>
             <ScrollView style={signUpPage.cardList}
             horizontal={true}
             pagingEnabled={true}
@@ -470,8 +554,10 @@ function MainScreen({navigation}) {
                     source={require("../src/images/1.jpg")}
                     />
                     <View style={signUpPage.centre}>
-                        <View style={signUpPage.blueCircle}>
-                            <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                        <View>
+                            <TouchableOpacity style={signUpPage.blueCircle}>
+                                <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                            </TouchableOpacity>
                         </View>
                         <Text>건축 기술자분..</Text>
                         <View style ={signUpPage.seperation}>
@@ -488,8 +574,10 @@ function MainScreen({navigation}) {
                     source={require("../src/images/2.jpg")}
                     />
                     <View style={signUpPage.centre}>
-                        <View style={signUpPage.whiteCircle}>
-                            <Image style={signUpPage.logoContainer} source={logoClose}/>
+                        <View>
+                            <TouchableOpacity style={signUpPage.whiteCircle}>
+                                <Image style={signUpPage.logoContainer} source={logoClose}/>
+                            </TouchableOpacity>
                         </View>
                         <Text>오늘 10시간 강남구..</Text>
                         <View style ={signUpPage.seperation}>
@@ -506,8 +594,10 @@ function MainScreen({navigation}) {
                     source={require("../src/images/3.jpg")}
                     />
                     <View style={signUpPage.centre}>
-                        <View style={signUpPage.whiteCircle}>
-                            <Image style={signUpPage.logoContainer} source={logoClose}/>
+                        <View>
+                            <TouchableOpacity style={signUpPage.whiteCircle}>
+                                <Image style={signUpPage.logoContainer} source={logoClose}/>
+                            </TouchableOpacity>
                         </View>
                         <Text>단기 계약직 공고(건설)</Text>
                         <View style ={signUpPage.seperation}>
@@ -524,8 +614,10 @@ function MainScreen({navigation}) {
                     source={require("../src/images/1.jpg")}
                     />
                     <View style={signUpPage.centre}>
-                        <View style={signUpPage.blueCircle}>
-                            <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                        <View>
+                            <TouchableOpacity style={signUpPage.blueCircle}>
+                                <Image style={signUpPage.logoContainer} source={logoCheck}/>
+                            </TouchableOpacity>
                         </View>
                         <Text>영등포구 건설 현장</Text>
                         <View style ={signUpPage.seperation}>
@@ -542,8 +634,10 @@ function MainScreen({navigation}) {
                     source={require("../src/images/2.jpg")}
                     />
                     <View style={signUpPage.centre}>
-                        <View style={signUpPage.whiteCircle}>
-                            <Image style={signUpPage.logoContainer} source={logoClose}/>
+                        <View>
+                            <TouchableOpacity style={signUpPage.whiteCircle}>
+                                <Image style={signUpPage.logoContainer} source={logoClose}/>
+                            </TouchableOpacity>
                         </View>
                         <Text>일주일 간 도와주실 분!!</Text>
                         <View style ={signUpPage.seperation}>
@@ -557,20 +651,21 @@ function MainScreen({navigation}) {
 
                 <View style={signUpPage.mold}>
                     <Image style={signUpPage.style}
-                    source={require("../src/images/3.jpg")}
-                    />
-                    <View style={signUpPage.centre}>
-                        <View style={signUpPage.whiteCircle}>
-                            <Image style={signUpPage.logoContainer} source={logoClose}/>
+                    source={require("../src/images/3.jpg")}/>
+                    <View style={signUpPage.centre}>   
+                        <View>
+                            <TouchableOpacity style={signUpPage.whiteCircle}>
+                                <Image style={signUpPage.logoContainer} source={logoClose}/>
+                            </TouchableOpacity>
                         </View>
-                    </View>
                     <Text>용접 기사분 구합니다.</Text>
                     <View style ={signUpPage.seperation}>
                         <Image style={signUpPage.logoContainer} source={logoClock} />
                         <Text style={signUpPage.time}>8시간</Text>
                         <Image style={signUpPage.logoContainer} source={logoStar} />
                         <Text style={signUpPage.money}>90,000</Text>                    
-                    </View>                
+                    </View>
+                </View>                 
                 </View>
             </ScrollView>   
         </ScrollView>
@@ -609,7 +704,7 @@ function MainScreen({navigation}) {
                 </TouchableOpacity>
             </View>
         </View>
-    </View>
+    </SafeAreaView>
 
   );
 }
