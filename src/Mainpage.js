@@ -424,7 +424,7 @@ const Search = () => {
 
 function MainScreen({navigation}) {
     return (
-    <SafeAreaView style={signUpPage.container}>
+    <View style={signUpPage.container}>
         <ScrollView>
             <View style ={signUpPage.header}>
                 <Text style ={signUpPage.title}>오늘의 BONGO를{"\n"}찾아보세요!</Text>
@@ -705,7 +705,7 @@ function MainScreen({navigation}) {
                 </TouchableOpacity>
             </View>
         </View>
-    </SafeAreaView>
+    </View>
 
   );
 }
