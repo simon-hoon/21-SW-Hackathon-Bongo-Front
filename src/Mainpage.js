@@ -379,7 +379,8 @@ function MainScreen({navigation}) {
             pagingEnabled={true}
             showsHorizontalScrollIndicator={false}
             >
-                <View style={signUpPage.mold}>
+                <View style={signUpPage.mold}
+                    onClick={() => navigation.navigate('detail')}>
                     <Image style={signUpPage.style}
                     source={require("../src/images/1.jpg")}
                     />

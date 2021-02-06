@@ -226,6 +226,13 @@ const signUpPage = StyleSheet.create({
     backgroundColor: "#d1d1d1",
     marginTop: 50
   },
+  nextBtnActive: {
+    alignSelf: 'stretch',
+    height: 55,
+    borderRadius: 27.6,
+    backgroundColor: colors.blue,
+    marginTop: 50
+  },
   nextBtnLabel: {
     fontFamily: basicFont,
     fontSize: 17.7,
@@ -341,7 +348,7 @@ function profileScreen({navigation}){
 
 
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <TouchableOpacity style={signUpPage.nextBtn}
+        <TouchableOpacity style={signUpPage.nextBtnActive}
         onPress={() => navigation.navigate('setInterest')}>
           <Text style={signUpPage.nextBtnLabel}>가입하기</Text>
         </TouchableOpacity>

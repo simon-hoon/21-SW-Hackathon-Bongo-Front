@@ -219,6 +219,13 @@ const signUpPage = StyleSheet.create({
     backgroundColor: "#d1d1d1",
     marginTop: 50
   },
+  nextBtnActive: {
+    alignSelf: 'stretch',
+    height: 55,
+    borderRadius: 27.6,
+    backgroundColor: colors.blue,
+    marginTop: 50
+  },
   nextBtnLabel: {
     fontFamily: basicFont,
     fontSize: 17.7,
@@ -326,7 +333,7 @@ function signUpScreen({navigation}){
         </TouchableOpacity>
         </View>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <TouchableOpacity style={signUpPage.nextBtn}
+        <TouchableOpacity style={[user_email != '' ? signUpPage.nextBtnActive : signUpPage.nextBtn]}
         onPress={() => navigation.navigate('setProfile')}>
           <Text style={signUpPage.nextBtnLabel}>가입하기</Text>
         </TouchableOpacity>
