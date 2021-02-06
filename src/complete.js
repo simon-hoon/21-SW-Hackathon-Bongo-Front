@@ -134,7 +134,7 @@ const menuBoxTextChoiced = {
 };
 
 const barLayer ={
-    width: 331,
+  width: 360,
   height: 27,
   marginLeft: 22,
   marginBottom: 10,
@@ -201,8 +201,9 @@ const completeStyle = StyleSheet.create({
 function completeScreen({navigation}){
       return (
     <SafeAreaView style={completeStyle.container}>
-            <View style={{marginLeft:22, marginTop: 50, marginBottom:-120,flexDirection: 'row', justifyContent:'space-between'}}>
-                <TouchableOpacity onPress = {()=>{}}
+            <View style={{marginLeft:22, marginTop: 50, marginBottom:-120, zIndex:7000,flexDirection: 'row', justifyContent:'space-between'}}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('main')}
                   style={completeStyle.workBtnNonActive}>
                     <Image style={completeStyle.logoContainer} source={logoEdit} />
                 </TouchableOpacity>

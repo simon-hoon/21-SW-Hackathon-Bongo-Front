@@ -241,7 +241,7 @@ function detailScreen({navigation}){
 
       return (
     <View style={completeStyle.container}>
-            <View style={{marginLeft:22, marginTop: 50, marginBottom:-120,}}>
+            <View style={{marginLeft:22, marginTop: 50, marginBottom:-120,zIndex:7000}}>
                 <TouchableOpacity style={completeStyle.workBtnNonActive}
                   onPress={() => navigation.navigate('main')}>
                     <Image style={completeStyle.logoContainer} source={constructImg} />
