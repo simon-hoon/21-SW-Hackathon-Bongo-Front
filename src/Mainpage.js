@@ -550,7 +550,8 @@ function MainScreen({navigation}) {
             showsHorizontalScrollIndicator={false}
             
             >
-                <View style={signUpPage.mold}>
+                <TouchableOpacity style={signUpPage.mold}
+                    onPress={() => navigation.navigate('detail')}>
                     <Image style={signUpPage.style}
                     source={require("../src/images/1.jpg")}
                     />
@@ -568,7 +569,7 @@ function MainScreen({navigation}) {
                             <Text style={signUpPage.money}>111,310</Text>                    
                         </View>                
                     </View>             
-                </View>
+                </TouchableOpacity>
 
                 <View style={signUpPage.mold}>
                     <Image style={signUpPage.style}
