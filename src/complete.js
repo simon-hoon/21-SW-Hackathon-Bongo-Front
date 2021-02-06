@@ -1,22 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView, SafeAreaView, ImageBackground, Image, ImageBase } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, SafeAreaView, Image} from "react-native";
 import 'react-native-gesture-handler';
 import {basicFont} from '../App';
-import Feather from 'react-native-vector-icons/Feather';
 import { ProgressBar } from 'react-native-paper';
 import { SwiperFlatList } from 'react-native-swiper-flatlist';
 
 import logoClock from './images/iconStrockClock.png';
 import logoStar from './images/iconStrockStar.png';
 import logoEdit from './images/iconStrokeEdit.png';
-import logoX from './images/iconStrokeClose.png';
-
-import constructImg from './images/iconStrockErectWhite.png';
-import electricImg from './images/iconStrockElectBlue.png';
-import deliveryImg from './images/iconStrockDeliveryBlue.png';
-import simpleImg from './images/iconStrockSimpleBlue.png';
-import arrowImg from './images/iconStrokeArrowRight.png';
-import { color } from "react-native-reanimated";
+import logoX from './images/iconStrokeCloseWhite.png';
 
 
 const colors = {
@@ -142,7 +134,7 @@ const menuBoxTextChoiced = {
 };
 
 const barLayer ={
-    width: 312,
+    width: 331,
   height: 27,
   marginLeft: 22,
   marginBottom: 10,
@@ -209,13 +201,18 @@ const completeStyle = StyleSheet.create({
 function completeScreen({navigation}){
       return (
     <SafeAreaView style={completeStyle.container}>
-            <View style={{marginLeft:22, marginTop: 50, marginBottom:-120,}}>
-                <TouchableOpacity style={completeStyle.workBtnNonActive}>
+            <View style={{marginLeft:22, marginTop: 50, marginBottom:-120,flexDirection: 'row', justifyContent:'space-between'}}>
+                <TouchableOpacity onPress = {()=>{}}
+                  style={completeStyle.workBtnNonActive}>
                     <Image style={completeStyle.logoContainer} source={logoEdit} />
                 </TouchableOpacity>
-            </View>
+                <TouchableOpacity
+                    onPress={() => navigation.goBack()}>
+                        <Image style ={{alignItems:'flex-end',justifyContent:'flex-end', marginRight : 16}} source={logoX}/>
+              </TouchableOpacity>
+            </View> 
            <SwiperFlatList index={0} showPagination  paginationDefaultColor={colors.white} 
-            paginationStyle ={{width : 50, height: 50, paddingTop: 14,}}
+            paginationStyle ={{width : 50, height: 50, marginTop: 14,}}
             paginationStyleItemInactive={{ width: 7, height: 7, borderStyle: "solid", borderWidth: 1.1, borderColor: "#979797"}}
             paginationStyleItemActive={{ width: 7, height: 7, backgroundColor: colors.blue}}>
       <ScrollView style={completeStyle.scrollView}>
