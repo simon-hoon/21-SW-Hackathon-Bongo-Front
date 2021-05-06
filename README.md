@@ -1,4 +1,4 @@
-# application (프론트)
+# 21-SW-Hackathon-Bongo
 
 2020 SW중심대학 공동해커톤 최우수상 수상
 
