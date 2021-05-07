@@ -1,6 +1,8 @@
 # 21-SW-Hackathon-Bongo
 
-2020 SW중심대학 공동해커톤 최우수상 수상
+2020 SW중심대학 공동해커톤 최우수상 수상 (2021.02)
+
+**팀명: 백셜 왕자와 4난장이, 프로젝트 명: BONGO**
 
 결과 : https://www.swuniv.kr/38/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=5877038&t=board
 
